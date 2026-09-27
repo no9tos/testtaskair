@@ -1,0 +1,14 @@
+[project]
+name = "winwin-hotel-search-assistant"
+version = "1.0.0"
+description = "OpenAI hotel-search filter assistant: prompt, tool schemas, 1000+ filter catalog, deterministic validator"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+openai = ["openai>=1.99"]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

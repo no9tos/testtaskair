@@ -1,0 +1,9081 @@
+{
+ "version": "2026-09-27",
+ "count": 1021,
+ "filters": [
+  {
+   "id": "price.per_night",
+   "label": "Price per night",
+   "category": "price",
+   "type": "range",
+   "synonyms": [
+    "budget",
+    "under",
+    "max price",
+    "cheap",
+    "per night"
+   ],
+   "unit": "EUR",
+   "min": 0,
+   "max": 5000,
+   "step": 5
+  },
+  {
+   "id": "price.total_stay",
+   "label": "Total price for stay",
+   "category": "price",
+   "type": "range",
+   "synonyms": [
+    "total budget",
+    "whole trip budget"
+   ],
+   "unit": "EUR",
+   "min": 0,
+   "max": 50000,
+   "step": 10
+  },
+  {
+   "id": "price.discount_percent",
+   "label": "Discount vs. usual price",
+   "category": "price",
+   "type": "range",
+   "synonyms": [
+    "deal",
+    "sale",
+    "best deals",
+    "discount"
+   ],
+   "unit": "%",
+   "min": 0,
+   "max": 90,
+   "step": 5
+  },
+  {
+   "id": "price.deal_score",
+   "label": "Deal score (price vs. area median)",
+   "category": "price",
+   "type": "range",
+   "synonyms": [
+    "good value",
+    "bargain",
+    "best deal"
+   ],
+   "unit": "score",
+   "min": 0,
+   "max": 100,
+   "step": 1
+  },
+  {
+   "id": "price.free_cancellation",
+   "label": "Free cancellation",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": [
+    "refundable",
+    "can cancel"
+   ],
+   "conflicts_with": [
+    "price.non_refundable_ok"
+   ]
+  },
+  {
+   "id": "price.non_refundable_ok",
+   "label": "Show non-refundable rates",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": [
+    "non refundable fine",
+    "cheapest rate"
+   ],
+   "conflicts_with": [
+    "price.free_cancellation"
+   ]
+  },
+  {
+   "id": "price.no_prepayment",
+   "label": "No prepayment",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": [
+    "pay later",
+    "no deposit"
+   ]
+  },
+  {
+   "id": "price.pay_at_property",
+   "label": "Pay at the property",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": [
+    "pay on arrival",
+    "pay at hotel"
+   ]
+  },
+  {
+   "id": "price.book_now_pay_later",
+   "label": "Book now, pay later",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "price.taxes_included",
+   "label": "Price includes taxes & fees",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": [
+    "all in price",
+    "no hidden fees"
+   ]
+  },
+  {
+   "id": "price.member_price",
+   "label": "Member / loyalty price available",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "price.mobile_only_deal",
+   "label": "Mobile-only deal",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "price.last_minute_deal",
+   "label": "Last-minute deal",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": [
+    "last minute"
+   ]
+  },
+  {
+   "id": "price.early_booking_deal",
+   "label": "Early-booking deal",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": [
+    "early bird"
+   ]
+  },
+  {
+   "id": "price.long_stay_discount",
+   "label": "Long-stay discount",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": [
+    "weekly rate",
+    "monthly rate"
+   ]
+  },
+  {
+   "id": "price.price_drop_recent",
+   "label": "Price dropped recently",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "price.installments",
+   "label": "Pay in installments",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "price.crypto_payment",
+   "label": "Accepts cryptocurrency",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "price.cash_payment",
+   "label": "Accepts cash",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "price.amex_accepted",
+   "label": "Accepts American Express",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "price.visa_mastercard_accepted",
+   "label": "Accepts Visa / Mastercard",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "price.unionpay_accepted",
+   "label": "Accepts UnionPay",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "price.jcb_accepted",
+   "label": "Accepts JCB",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "price.apple_google_pay",
+   "label": "Apple Pay / Google Pay",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "price.no_credit_card_needed",
+   "label": "No credit card needed to book",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "price.city_tax_included",
+   "label": "City tax included",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "price.free_breakfast_deal",
+   "label": "Deal includes free breakfast",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "price.free_upgrade_deal",
+   "label": "Deal includes room upgrade",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "price.price_match",
+   "label": "Price-match guarantee",
+   "category": "price",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "rating.stars",
+   "label": "Star rating",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [
+    "star",
+    "5 star",
+    "luxury",
+    "3-star"
+   ],
+   "unit": "stars",
+   "min": 0,
+   "max": 5,
+   "step": 1
+  },
+  {
+   "id": "rating.guest_score",
+   "label": "Guest review score",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [
+    "well rated",
+    "good reviews",
+    "highly rated"
+   ],
+   "unit": "score",
+   "min": 0,
+   "max": 10,
+   "step": 0.5
+  },
+  {
+   "id": "rating.review_count",
+   "label": "Number of reviews",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [
+    "popular",
+    "lots of reviews"
+   ],
+   "unit": "reviews",
+   "min": 0,
+   "max": 50000,
+   "step": 10
+  },
+  {
+   "id": "rating.cleanliness_score",
+   "label": "Cleanliness score",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [],
+   "unit": "score",
+   "min": 0,
+   "max": 10,
+   "step": 0.5
+  },
+  {
+   "id": "rating.comfort_score",
+   "label": "Comfort score",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [],
+   "unit": "score",
+   "min": 0,
+   "max": 10,
+   "step": 0.5
+  },
+  {
+   "id": "rating.location_score",
+   "label": "Location score",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [],
+   "unit": "score",
+   "min": 0,
+   "max": 10,
+   "step": 0.5
+  },
+  {
+   "id": "rating.staff_score",
+   "label": "Staff score",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [],
+   "unit": "score",
+   "min": 0,
+   "max": 10,
+   "step": 0.5
+  },
+  {
+   "id": "rating.value_score",
+   "label": "Value score",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [],
+   "unit": "score",
+   "min": 0,
+   "max": 10,
+   "step": 0.5
+  },
+  {
+   "id": "rating.facilities_score",
+   "label": "Facilities score",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [],
+   "unit": "score",
+   "min": 0,
+   "max": 10,
+   "step": 0.5
+  },
+  {
+   "id": "rating.wifi_score",
+   "label": "Wifi score",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [],
+   "unit": "score",
+   "min": 0,
+   "max": 10,
+   "step": 0.5
+  },
+  {
+   "id": "rating.breakfast_score",
+   "label": "Breakfast score",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [],
+   "unit": "score",
+   "min": 0,
+   "max": 10,
+   "step": 0.5
+  },
+  {
+   "id": "rating.quietness_score",
+   "label": "Quietness score",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [],
+   "unit": "score",
+   "min": 0,
+   "max": 10,
+   "step": 0.5
+  },
+  {
+   "id": "rating.bed_comfort_score",
+   "label": "Bed comfort score",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [],
+   "unit": "score",
+   "min": 0,
+   "max": 10,
+   "step": 0.5
+  },
+  {
+   "id": "rating.bathroom_score",
+   "label": "Bathroom score",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [],
+   "unit": "score",
+   "min": 0,
+   "max": 10,
+   "step": 0.5
+  },
+  {
+   "id": "rating.food_score",
+   "label": "Food score",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [],
+   "unit": "score",
+   "min": 0,
+   "max": 10,
+   "step": 0.5
+  },
+  {
+   "id": "rating.check_in_experience_score",
+   "label": "Check in experience score",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [],
+   "unit": "score",
+   "min": 0,
+   "max": 10,
+   "step": 0.5
+  },
+  {
+   "id": "rating.family_friendliness_score",
+   "label": "Family friendliness score",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [],
+   "unit": "score",
+   "min": 0,
+   "max": 10,
+   "step": 0.5
+  },
+  {
+   "id": "rating.romance_score",
+   "label": "Romance score",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [],
+   "unit": "score",
+   "min": 0,
+   "max": 10,
+   "step": 0.5
+  },
+  {
+   "id": "rating.business_friendliness_score",
+   "label": "Business friendliness score",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [],
+   "unit": "score",
+   "min": 0,
+   "max": 10,
+   "step": 0.5
+  },
+  {
+   "id": "rating.accessibility_score",
+   "label": "Accessibility score",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [],
+   "unit": "score",
+   "min": 0,
+   "max": 10,
+   "step": 0.5
+  },
+  {
+   "id": "rating.sustainability_score",
+   "label": "Sustainability score",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [],
+   "unit": "score",
+   "min": 0,
+   "max": 10,
+   "step": 0.5
+  },
+  {
+   "id": "rating.pet_experience_score",
+   "label": "Pet experience score",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [],
+   "unit": "score",
+   "min": 0,
+   "max": 10,
+   "step": 0.5
+  },
+  {
+   "id": "rating.pool_score",
+   "label": "Pool score",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [],
+   "unit": "score",
+   "min": 0,
+   "max": 10,
+   "step": 0.5
+  },
+  {
+   "id": "rating.travellers_choice",
+   "label": "Guest favourite / traveller's choice award",
+   "category": "rating",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "rating.verified_reviews_only",
+   "label": "Rating from verified stays only",
+   "category": "rating",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "rating.recently_renovated",
+   "label": "Renovated in the last 3 years",
+   "category": "rating",
+   "type": "boolean",
+   "synonyms": [
+    "renovated",
+    "newly refurbished"
+   ]
+  },
+  {
+   "id": "rating.newly_opened",
+   "label": "Opened in the last 2 years",
+   "category": "rating",
+   "type": "boolean",
+   "synonyms": [
+    "new hotel"
+   ]
+  },
+  {
+   "id": "rating.solo_traveller_favourite",
+   "label": "Popular with solo travellers",
+   "category": "rating",
+   "type": "boolean",
+   "synonyms": [
+    "solo"
+   ]
+  },
+  {
+   "id": "rating.couples_favourite",
+   "label": "Popular with couples",
+   "category": "rating",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "rating.families_favourite",
+   "label": "Popular with families",
+   "category": "rating",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "rating.business_favourite",
+   "label": "Popular with business travellers",
+   "category": "rating",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "rating.digital_nomad_favourite",
+   "label": "Popular with digital nomads",
+   "category": "rating",
+   "type": "boolean",
+   "synonyms": [
+    "remote work"
+   ]
+  },
+  {
+   "id": "rating.groups_favourite",
+   "label": "Popular with groups",
+   "category": "rating",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "rating.year_built",
+   "label": "Year built",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [
+    "historic",
+    "modern building"
+   ],
+   "unit": "year",
+   "min": 1100,
+   "max": 2027,
+   "step": 1
+  },
+  {
+   "id": "rating.year_renovated",
+   "label": "Year last renovated",
+   "category": "rating",
+   "type": "range",
+   "synonyms": [],
+   "unit": "year",
+   "min": 1950,
+   "max": 2027,
+   "step": 1
+  },
+  {
+   "id": "property_type.hotel",
+   "label": "Hotel",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.boutique_hotel",
+   "label": "Boutique Hotel",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": [
+    "boutique",
+    "small hotel",
+    "intimate hotel"
+   ]
+  },
+  {
+   "id": "property_type.design_hotel",
+   "label": "Design Hotel",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.bed_and_breakfast",
+   "label": "Bed & Breakfast",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": [
+    "b&b",
+    "bnb"
+   ]
+  },
+  {
+   "id": "property_type.guesthouse",
+   "label": "Guesthouse",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.inn",
+   "label": "Inn",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.motel",
+   "label": "Motel",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.hostel",
+   "label": "Hostel",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": [
+    "backpacker",
+    "dorm"
+   ],
+   "conflicts_with": [
+    "style.luxury"
+   ],
+   "soft_conflicts_with": [
+    "trip_purpose.honeymoon"
+   ]
+  },
+  {
+   "id": "property_type.capsule_hotel",
+   "label": "Capsule Hotel",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.pod_hotel",
+   "label": "Pod Hotel",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.aparthotel",
+   "label": "Aparthotel",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.serviced_apartment",
+   "label": "Serviced Apartment",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.apartment",
+   "label": "Apartment",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": [
+    "flat",
+    "airbnb style",
+    "self-catering"
+   ]
+  },
+  {
+   "id": "property_type.holiday_home",
+   "label": "Holiday Home",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.villa",
+   "label": "Villa",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.chalet",
+   "label": "Chalet",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.cottage",
+   "label": "Cottage",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.cabin",
+   "label": "Cabin",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.bungalow",
+   "label": "Bungalow",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.lodge",
+   "label": "Lodge",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.resort",
+   "label": "Resort",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.all_inclusive_resort",
+   "label": "All Inclusive Resort",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.spa_resort",
+   "label": "Spa Resort",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.ski_resort_hotel",
+   "label": "Ski Resort Hotel",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.golf_resort",
+   "label": "Golf Resort",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.beach_resort",
+   "label": "Beach Resort",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.eco_lodge",
+   "label": "Eco Lodge",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.farm_stay",
+   "label": "Farm Stay",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.agritourism",
+   "label": "Agritourism",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.ryokan",
+   "label": "Ryokan",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": [
+    "japanese inn",
+    "tatami"
+   ]
+  },
+  {
+   "id": "property_type.minshuku",
+   "label": "Minshuku",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.machiya",
+   "label": "Machiya",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.riad",
+   "label": "Riad",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.dar",
+   "label": "Dar",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.kasbah",
+   "label": "Kasbah",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.castle",
+   "label": "Castle",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.palace",
+   "label": "Palace",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.manor_house",
+   "label": "Manor House",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.country_house",
+   "label": "Country House",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.monastery_stay",
+   "label": "Monastery Stay",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.lighthouse",
+   "label": "Lighthouse",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.houseboat",
+   "label": "Houseboat",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.boat_hotel",
+   "label": "Boat Hotel",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.treehouse",
+   "label": "Treehouse",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.glamping",
+   "label": "Glamping",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.tented_camp",
+   "label": "Tented Camp",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.yurt",
+   "label": "Yurt",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.igloo",
+   "label": "Igloo",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.cave_hotel",
+   "label": "Cave Hotel",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.overwater_bungalow",
+   "label": "Overwater Bungalow",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.love_hotel",
+   "label": "Love Hotel",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.homestay",
+   "label": "Homestay",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.pension",
+   "label": "Pension",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.pousada",
+   "label": "Pousada",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.parador",
+   "label": "Parador",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.hacienda",
+   "label": "Hacienda",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.trullo",
+   "label": "Trullo",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.dammuso",
+   "label": "Dammuso",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.masseria",
+   "label": "Masseria",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.gite",
+   "label": "Gite",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.tiny_house",
+   "label": "Tiny House",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.container_hotel",
+   "label": "Container Hotel",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.condo_hotel",
+   "label": "Condo Hotel",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.residence",
+   "label": "Residence",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.student_residence",
+   "label": "Student Residence",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.extended_stay_hotel",
+   "label": "Extended Stay Hotel",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.airport_hotel",
+   "label": "Airport Hotel",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.casino_hotel",
+   "label": "Casino Hotel",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.heritage_hotel",
+   "label": "Heritage Hotel",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.safari_lodge",
+   "label": "Safari Lodge",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.mountain_hut",
+   "label": "Mountain Hut",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property_type.wine_estate",
+   "label": "Wine Estate",
+   "category": "property_type",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "style.independent",
+   "label": "Independent (not part of a chain)",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "not a chain",
+    "no chain",
+    "non-chain",
+    "independent"
+   ],
+   "conflicts_with": [
+    "style.chain"
+   ]
+  },
+  {
+   "id": "style.chain",
+   "label": "Part of a hotel chain",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "chain hotel",
+    "big brand"
+   ],
+   "conflicts_with": [
+    "style.independent",
+    "style.family_run"
+   ]
+  },
+  {
+   "id": "style.family_run",
+   "label": "Family-run",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "family owned",
+    "run by a family",
+    "owner operated"
+   ],
+   "conflicts_with": [
+    "style.chain"
+   ],
+   "implies": [
+    "style.independent"
+   ]
+  },
+  {
+   "id": "style.small_property",
+   "label": "Small property (≤ 30 rooms)",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "small",
+    "intimate",
+    "cozy",
+    "cosy"
+   ],
+   "conflicts_with": [
+    "style.large_property"
+   ]
+  },
+  {
+   "id": "style.large_property",
+   "label": "Large property (200+ rooms)",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "big hotel",
+    "large hotel"
+   ],
+   "conflicts_with": [
+    "style.small_property"
+   ]
+  },
+  {
+   "id": "style.quiet_atmosphere",
+   "label": "Quiet atmosphere",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "quiet",
+    "calm",
+    "peaceful",
+    "tranquil"
+   ],
+   "conflicts_with": [
+    "style.party_atmosphere"
+   ],
+   "soft_conflicts_with": [
+    "location.near_nightlife"
+   ]
+  },
+  {
+   "id": "style.party_atmosphere",
+   "label": "Lively / party atmosphere",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "party",
+    "lively",
+    "social",
+    "nightlife hotel"
+   ],
+   "conflicts_with": [
+    "style.quiet_atmosphere"
+   ]
+  },
+  {
+   "id": "style.romantic",
+   "label": "Romantic",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "honeymoon",
+    "couples getaway"
+   ]
+  },
+  {
+   "id": "style.luxury",
+   "label": "Luxury",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "luxurious",
+    "high end",
+    "5-star feel"
+   ],
+   "conflicts_with": [
+    "style.budget_style",
+    "property_type.hostel"
+   ]
+  },
+  {
+   "id": "style.budget_style",
+   "label": "Budget / no-frills",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "cheap",
+    "basic",
+    "no frills"
+   ],
+   "conflicts_with": [
+    "style.luxury"
+   ],
+   "soft_conflicts_with": [
+    "meals.michelin_restaurant"
+   ]
+  },
+  {
+   "id": "style.design_focus",
+   "label": "Design-led interiors",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "designer",
+    "stylish",
+    "instagrammable"
+   ]
+  },
+  {
+   "id": "style.historic_building",
+   "label": "Historic building",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "historic",
+    "old building",
+    "monument",
+    "heritage"
+   ]
+  },
+  {
+   "id": "style.modern_building",
+   "label": "Modern / contemporary building",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "modern",
+    "contemporary"
+   ]
+  },
+  {
+   "id": "style.minimalist",
+   "label": "Minimalist style",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "style.rustic",
+   "label": "Rustic style",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "countryside feel"
+   ]
+  },
+  {
+   "id": "style.art_hotel",
+   "label": "Art hotel / gallery on site",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "art"
+   ]
+  },
+  {
+   "id": "style.cozy",
+   "label": "Cozy / homely",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "cosy",
+    "homely",
+    "warm atmosphere"
+   ]
+  },
+  {
+   "id": "style.adults_only",
+   "label": "Adults only",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "no kids",
+    "child free",
+    "adults-only"
+   ],
+   "conflicts_with": [
+    "style.kids_welcome",
+    "family.kids_club",
+    "family.kids_stay_free"
+   ],
+   "soft_conflicts_with": [
+    "trip_purpose.family_holiday"
+   ]
+  },
+  {
+   "id": "style.kids_welcome",
+   "label": "Kids welcome",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "child friendly",
+    "family friendly"
+   ],
+   "conflicts_with": [
+    "style.adults_only"
+   ]
+  },
+  {
+   "id": "style.lgbtq_friendly",
+   "label": "LGBTQ+ friendly",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "gay friendly",
+    "queer friendly"
+   ]
+  },
+  {
+   "id": "style.women_only_floor",
+   "label": "Women-only floor / rooms",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "style.digital_detox",
+   "label": "Digital detox",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "no wifi retreat"
+   ],
+   "conflicts_with": [
+    "connectivity.free_wifi"
+   ],
+   "soft_conflicts_with": [
+    "connectivity.coworking_space"
+   ]
+  },
+  {
+   "id": "style.wellness_retreat",
+   "label": "Wellness retreat",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "style.eco_style",
+   "label": "Eco / sustainable style",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "eco",
+    "green hotel"
+   ]
+  },
+  {
+   "id": "style.hip_trendy",
+   "label": "Hip / trendy",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "trendy",
+    "cool"
+   ]
+  },
+  {
+   "id": "style.traditional_local",
+   "label": "Traditional local style",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "authentic",
+    "local style"
+   ]
+  },
+  {
+   "id": "style.secluded",
+   "label": "Secluded / remote",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "remote",
+    "off the beaten path",
+    "isolated"
+   ],
+   "soft_conflicts_with": [
+    "location.city_centre"
+   ]
+  },
+  {
+   "id": "style.instagram_worthy",
+   "label": "Photogenic / instagram-worthy",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "style.pet_themed",
+   "label": "Pet-themed / cat café hotel",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "style.themed_rooms",
+   "label": "Themed rooms",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "style.smoke_free_property",
+   "label": "Entirely smoke-free property",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "no smoking at all"
+   ],
+   "conflicts_with": [
+    "policies.smoking_rooms",
+    "style.smoking_allowed_property"
+   ]
+  },
+  {
+   "id": "style.smoking_allowed_property",
+   "label": "Smoking allowed areas",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "smoker friendly"
+   ],
+   "conflicts_with": [
+    "style.smoke_free_property"
+   ]
+  },
+  {
+   "id": "style.alcohol_free_property",
+   "label": "Alcohol-free property",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "dry hotel",
+    "no alcohol"
+   ],
+   "conflicts_with": [
+    "meals.bar",
+    "meals.wine_bar",
+    "meals.cocktail_bar"
+   ]
+  },
+  {
+   "id": "style.muslim_friendly",
+   "label": "Muslim-friendly",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "halal friendly"
+   ]
+  },
+  {
+   "id": "style.kosher_friendly",
+   "label": "Kosher-friendly",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "style.religious_retreat",
+   "label": "Religious / spiritual retreat",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "style.student_friendly",
+   "label": "Student-friendly",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "style.senior_friendly",
+   "label": "Senior-friendly",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "elderly"
+   ]
+  },
+  {
+   "id": "style.solo_friendly",
+   "label": "Solo-traveller friendly (no single supplement)",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "solo",
+    "single traveller"
+   ]
+  },
+  {
+   "id": "style.group_friendly",
+   "label": "Group-friendly",
+   "category": "style",
+   "type": "boolean",
+   "synonyms": [
+    "large group",
+    "stag",
+    "hen party"
+   ]
+  },
+  {
+   "id": "location.distance_to_center",
+   "label": "Distance to city centre",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "central",
+    "city centre",
+    "downtown",
+    "walking distance"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 50,
+   "step": 0.5
+  },
+  {
+   "id": "location.distance_to_airport",
+   "label": "Distance to airport",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near airport",
+    "close to airport"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_main_train_station",
+   "label": "Distance to main train station",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near main train station",
+    "close to main train station"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_metro_station",
+   "label": "Distance to metro station",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near metro station",
+    "close to metro station"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_tram_stop",
+   "label": "Distance to tram stop",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near tram stop",
+    "close to tram stop"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_bus_station",
+   "label": "Distance to bus station",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near bus station",
+    "close to bus station"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_ferry_terminal",
+   "label": "Distance to ferry terminal",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near ferry terminal",
+    "close to ferry terminal"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_cruise_port",
+   "label": "Distance to cruise port",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near cruise port",
+    "close to cruise port"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_beach",
+   "label": "Distance to beach",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near beach",
+    "close to beach"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1,
+   "requires_geo_feature": "coast"
+  },
+  {
+   "id": "location.distance_to_ski_lift",
+   "label": "Distance to ski lift",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near ski lift",
+    "close to ski lift"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1,
+   "requires_geo_feature": "ski_area"
+  },
+  {
+   "id": "location.distance_to_old_town",
+   "label": "Distance to old town",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near old town",
+    "close to old town"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_convention_center",
+   "label": "Distance to convention center",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near convention center",
+    "close to convention center"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_exhibition_center",
+   "label": "Distance to exhibition center",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near exhibition center",
+    "close to exhibition center"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_stadium",
+   "label": "Distance to stadium",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near stadium",
+    "close to stadium"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_university",
+   "label": "Distance to university",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near university",
+    "close to university"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_hospital",
+   "label": "Distance to hospital",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near hospital",
+    "close to hospital"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_theme_park",
+   "label": "Distance to theme park",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near theme park",
+    "close to theme park"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_national_park",
+   "label": "Distance to national park",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near national park",
+    "close to national park"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_lake",
+   "label": "Distance to lake",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near lake",
+    "close to lake"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_river",
+   "label": "Distance to river",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near river",
+    "close to river"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_harbour",
+   "label": "Distance to harbour",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near harbour",
+    "close to harbour"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_shopping_mall",
+   "label": "Distance to shopping mall",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near shopping mall",
+    "close to shopping mall"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_main_shopping_street",
+   "label": "Distance to main shopping street",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near main shopping street",
+    "close to main shopping street"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_nightlife_district",
+   "label": "Distance to nightlife district",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near nightlife district",
+    "close to nightlife district"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_museum_quarter",
+   "label": "Distance to museum quarter",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near museum quarter",
+    "close to museum quarter"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_business_district",
+   "label": "Distance to business district",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near business district",
+    "close to business district"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_golf_course",
+   "label": "Distance to golf course",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near golf course",
+    "close to golf course"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_marina",
+   "label": "Distance to marina",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near marina",
+    "close to marina"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_hiking_trailhead",
+   "label": "Distance to hiking trailhead",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near hiking trailhead",
+    "close to hiking trailhead"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_zoo",
+   "label": "Distance to zoo",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near zoo",
+    "close to zoo"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_casino",
+   "label": "Distance to casino",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near casino",
+    "close to casino"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_concert_hall",
+   "label": "Distance to concert hall",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near concert hall",
+    "close to concert hall"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_christmas_market",
+   "label": "Distance to christmas market",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near christmas market",
+    "close to christmas market"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_vineyard",
+   "label": "Distance to vineyard",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near vineyard",
+    "close to vineyard"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_hot_spring",
+   "label": "Distance to hot spring",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near hot spring",
+    "close to hot spring"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.distance_to_landmark",
+   "label": "Distance to landmark",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "near landmark",
+    "close to landmark"
+   ],
+   "unit": "km",
+   "min": 0,
+   "max": 100,
+   "step": 0.1
+  },
+  {
+   "id": "location.walk_score",
+   "label": "Walkability score",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "walkable"
+   ],
+   "unit": "score",
+   "min": 0,
+   "max": 100,
+   "step": 5
+  },
+  {
+   "id": "location.transit_score",
+   "label": "Public transport score",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "good transport"
+   ],
+   "unit": "score",
+   "min": 0,
+   "max": 100,
+   "step": 5
+  },
+  {
+   "id": "location.neighbourhood_safety",
+   "label": "Neighbourhood safety score",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "safe area"
+   ],
+   "unit": "score",
+   "min": 0,
+   "max": 10,
+   "step": 0.5
+  },
+  {
+   "id": "location.neighbourhood_noise",
+   "label": "Neighbourhood noise level (lower = quieter)",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "quiet street",
+    "noisy"
+   ],
+   "unit": "dB",
+   "min": 30,
+   "max": 90,
+   "step": 5
+  },
+  {
+   "id": "location.elevation",
+   "label": "Elevation",
+   "category": "location",
+   "type": "range",
+   "synonyms": [
+    "altitude",
+    "mountain"
+   ],
+   "unit": "m",
+   "min": 0,
+   "max": 5000,
+   "step": 50
+  },
+  {
+   "id": "location.beachfront",
+   "label": "Beachfront",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": [
+    "on the beach",
+    "beach front"
+   ],
+   "requires_geo_feature": "coast"
+  },
+  {
+   "id": "location.lakefront",
+   "label": "Lakefront",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": [
+    "on the lake"
+   ],
+   "requires_geo_feature": "lake"
+  },
+  {
+   "id": "location.riverside",
+   "label": "Riverside",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": [
+    "by the river",
+    "canal side"
+   ]
+  },
+  {
+   "id": "location.canal_side",
+   "label": "Canal-side",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": [
+    "on a canal"
+   ],
+   "requires_geo_feature": "canals"
+  },
+  {
+   "id": "location.oceanfront",
+   "label": "Oceanfront",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": [
+    "sea front",
+    "seafront"
+   ],
+   "requires_geo_feature": "coast"
+  },
+  {
+   "id": "location.ski_in_ski_out",
+   "label": "Ski-in / ski-out",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": [
+    "ski in",
+    "slope side"
+   ],
+   "implies": [
+    "location.mountain_location"
+   ],
+   "requires_geo_feature": "ski_area"
+  },
+  {
+   "id": "location.in_old_town",
+   "label": "In the old town",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": [
+    "historic centre",
+    "old town"
+   ]
+  },
+  {
+   "id": "location.city_centre",
+   "label": "In the city centre",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": [
+    "central",
+    "centre",
+    "downtown"
+   ],
+   "conflicts_with": [
+    "location.countryside"
+   ],
+   "soft_conflicts_with": [
+    "style.secluded"
+   ]
+  },
+  {
+   "id": "location.quiet_street",
+   "label": "On a quiet street",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": [
+    "no traffic noise",
+    "quiet location"
+   ]
+  },
+  {
+   "id": "location.pedestrian_zone",
+   "label": "In a pedestrian zone",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "location.near_nightlife",
+   "label": "Near nightlife",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": [
+    "bars nearby",
+    "going out"
+   ],
+   "soft_conflicts_with": [
+    "style.quiet_atmosphere",
+    "beds.soundproofing"
+   ]
+  },
+  {
+   "id": "location.near_restaurants",
+   "label": "Many restaurants nearby",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "location.near_supermarket",
+   "label": "Supermarket within 500 m",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "location.near_park",
+   "label": "Park within 500 m",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": [
+    "green area"
+   ]
+  },
+  {
+   "id": "location.near_public_transport",
+   "label": "Public transport within 300 m",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "location.countryside",
+   "label": "Countryside",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": [
+    "rural",
+    "nature"
+   ],
+   "conflicts_with": [
+    "location.city_centre"
+   ]
+  },
+  {
+   "id": "location.mountain_location",
+   "label": "In the mountains",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": [
+    "alps",
+    "mountains"
+   ],
+   "requires_geo_feature": "mountains"
+  },
+  {
+   "id": "location.island_location",
+   "label": "On an island",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "location.desert_location",
+   "label": "In the desert",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": [],
+   "requires_geo_feature": "desert"
+  },
+  {
+   "id": "location.forest_location",
+   "label": "In a forest",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": [
+    "woods"
+   ]
+  },
+  {
+   "id": "location.vineyard_location",
+   "label": "In a vineyard / wine region",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "location.airport_area",
+   "label": "Airport area",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": [
+    "near airport",
+    "layover"
+   ]
+  },
+  {
+   "id": "location.business_area",
+   "label": "Business district",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "location.residential_area",
+   "label": "Residential area",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": [
+    "local neighbourhood"
+   ]
+  },
+  {
+   "id": "location.waterfront",
+   "label": "Waterfront",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "location.hilltop",
+   "label": "Hilltop",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "location.cliffside",
+   "label": "Cliffside",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "location.private_island",
+   "label": "Private island",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "location.gated_area",
+   "label": "Gated community",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "location.car_free_area",
+   "label": "Car-free area",
+   "category": "location",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room.size",
+   "label": "Room size",
+   "category": "room",
+   "type": "range",
+   "synonyms": [
+    "square meters",
+    "sqm",
+    "m2",
+    "spacious",
+    "big room"
+   ],
+   "unit": "m2",
+   "min": 5,
+   "max": 500,
+   "step": 1
+  },
+  {
+   "id": "room.bedrooms",
+   "label": "Number of bedrooms",
+   "category": "room",
+   "type": "range",
+   "synonyms": [
+    "2 bedroom",
+    "separate bedroom"
+   ],
+   "unit": "rooms",
+   "min": 0,
+   "max": 10,
+   "step": 1
+  },
+  {
+   "id": "room.bathrooms",
+   "label": "Number of bathrooms",
+   "category": "room",
+   "type": "range",
+   "synonyms": [
+    "two bathrooms"
+   ],
+   "unit": "rooms",
+   "min": 1,
+   "max": 8,
+   "step": 1
+  },
+  {
+   "id": "room.beds",
+   "label": "Number of beds",
+   "category": "room",
+   "type": "range",
+   "synonyms": [],
+   "unit": "beds",
+   "min": 1,
+   "max": 12,
+   "step": 1
+  },
+  {
+   "id": "room.floor_level",
+   "label": "Floor level",
+   "category": "room",
+   "type": "range",
+   "synonyms": [
+    "high floor",
+    "ground floor",
+    "top floor"
+   ],
+   "unit": "floor",
+   "min": -1,
+   "max": 100,
+   "step": 1
+  },
+  {
+   "id": "room.ceiling_height",
+   "label": "Ceiling height",
+   "category": "room",
+   "type": "range",
+   "synonyms": [
+    "high ceilings"
+   ],
+   "unit": "m",
+   "min": 2,
+   "max": 6,
+   "step": 0.1
+  },
+  {
+   "id": "room.max_occupancy",
+   "label": "Max occupancy of the room",
+   "category": "room",
+   "type": "range",
+   "synonyms": [],
+   "unit": "people",
+   "min": 1,
+   "max": 20,
+   "step": 1
+  },
+  {
+   "id": "room.studio",
+   "label": "Studio layout",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room.suite",
+   "label": "Suite",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": [
+    "junior suite"
+   ]
+  },
+  {
+   "id": "room.separate_living_room",
+   "label": "Separate living room",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": [
+    "living area",
+    "lounge area"
+   ]
+  },
+  {
+   "id": "room.loft",
+   "label": "Loft / duplex",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": [
+    "duplex",
+    "mezzanine"
+   ]
+  },
+  {
+   "id": "room.penthouse",
+   "label": "Penthouse",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room.connecting_rooms",
+   "label": "Connecting rooms available",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": [
+    "interconnecting",
+    "adjoining rooms"
+   ]
+  },
+  {
+   "id": "room.family_room",
+   "label": "Family room",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": [
+    "room for 4"
+   ]
+  },
+  {
+   "id": "room.dormitory",
+   "label": "Dormitory bed",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": [
+    "dorm bed",
+    "shared room"
+   ],
+   "conflicts_with": [
+    "room.private_room",
+    "room.entire_place"
+   ]
+  },
+  {
+   "id": "room.female_dorm",
+   "label": "Female-only dorm",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room.private_room",
+   "label": "Private room",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": [],
+   "conflicts_with": [
+    "room.dormitory"
+   ]
+  },
+  {
+   "id": "room.entire_place",
+   "label": "Entire place to yourself",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": [
+    "whole apartment",
+    "entire home"
+   ],
+   "conflicts_with": [
+    "room.dormitory"
+   ]
+  },
+  {
+   "id": "room.single_room",
+   "label": "Single room",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room.floor_space_exercise",
+   "label": "Open floor space (yoga / exercise)",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": [
+    "yoga",
+    "stretch",
+    "floor space",
+    "workout space"
+   ]
+  },
+  {
+   "id": "room.dining_area",
+   "label": "Dining area",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room.walk_in_closet",
+   "label": "Walk-in closet",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room.ground_floor_room",
+   "label": "Ground-floor room",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": [
+    "no stairs room"
+   ],
+   "conflicts_with": [
+    "room.top_floor_room"
+   ]
+  },
+  {
+   "id": "room.top_floor_room",
+   "label": "Top-floor room",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": [],
+   "conflicts_with": [
+    "room.ground_floor_room"
+   ]
+  },
+  {
+   "id": "room.corner_room",
+   "label": "Corner room",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room.private_entrance",
+   "label": "Private entrance",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room.private_garden",
+   "label": "Private garden",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room.private_pool",
+   "label": "Private pool",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": [
+    "plunge pool"
+   ]
+  },
+  {
+   "id": "room.private_hot_tub",
+   "label": "Private hot tub",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": [
+    "private jacuzzi"
+   ]
+  },
+  {
+   "id": "room.private_sauna",
+   "label": "Private sauna",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room.rooftop_access",
+   "label": "Private rooftop access",
+   "category": "room",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "beds.double_bed",
+   "label": "Double bed (single mattress)",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": [
+    "real double bed",
+    "proper double",
+    "not two twins",
+    "double bed"
+   ],
+   "conflicts_with": [
+    "beds.twin_beds"
+   ]
+  },
+  {
+   "id": "beds.queen_bed",
+   "label": "Queen bed",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": [
+    "queen"
+   ],
+   "implies": [
+    "beds.double_bed"
+   ]
+  },
+  {
+   "id": "beds.king_bed",
+   "label": "King bed",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": [
+    "king size",
+    "king"
+   ],
+   "implies": [
+    "beds.double_bed"
+   ]
+  },
+  {
+   "id": "beds.super_king_bed",
+   "label": "Super-king bed",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": [],
+   "implies": [
+    "beds.double_bed"
+   ]
+  },
+  {
+   "id": "beds.twin_beds",
+   "label": "Twin beds",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": [
+    "two single beds",
+    "twins"
+   ],
+   "conflicts_with": [
+    "beds.double_bed"
+   ]
+  },
+  {
+   "id": "beds.single_bed",
+   "label": "Single bed",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "beds.bunk_bed",
+   "label": "Bunk bed",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "beds.sofa_bed",
+   "label": "Sofa bed",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": [
+    "pull out couch"
+   ]
+  },
+  {
+   "id": "beds.futon",
+   "label": "Futon",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": [
+    "tatami bed"
+   ]
+  },
+  {
+   "id": "beds.water_bed",
+   "label": "Water bed",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "beds.round_bed",
+   "label": "Round bed",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "beds.canopy_bed",
+   "label": "Four-poster / canopy bed",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "beds.extra_long_bed",
+   "label": "Extra-long bed (≥ 210 cm)",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": [
+    "tall person",
+    "long bed"
+   ]
+  },
+  {
+   "id": "beds.adjustable_bed",
+   "label": "Adjustable bed",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "beds.bed_width",
+   "label": "Bed width",
+   "category": "beds",
+   "type": "range",
+   "synonyms": [
+    "wide bed"
+   ],
+   "unit": "cm",
+   "min": 80,
+   "max": 240,
+   "step": 10
+  },
+  {
+   "id": "beds.crib_available",
+   "label": "Cot / crib available",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": [
+    "baby cot",
+    "crib"
+   ]
+  },
+  {
+   "id": "beds.extra_bed_available",
+   "label": "Extra bed available",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": [
+    "rollaway"
+   ]
+  },
+  {
+   "id": "beds.pillow_menu",
+   "label": "Pillow menu",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "beds.hypoallergenic_bedding",
+   "label": "Hypoallergenic bedding",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": [
+    "allergy",
+    "allergies"
+   ]
+  },
+  {
+   "id": "beds.feather_free_bedding",
+   "label": "Feather-free bedding",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "beds.memory_foam_mattress",
+   "label": "Memory foam mattress",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "beds.firm_mattress",
+   "label": "Firm mattress",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": [
+    "hard mattress"
+   ],
+   "conflicts_with": [
+    "beds.soft_mattress"
+   ]
+  },
+  {
+   "id": "beds.soft_mattress",
+   "label": "Soft mattress",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": [],
+   "conflicts_with": [
+    "beds.firm_mattress"
+   ]
+  },
+  {
+   "id": "beds.premium_linen",
+   "label": "Premium linen (Egyptian cotton etc.)",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "beds.blackout_curtains",
+   "label": "Blackout curtains",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": [
+    "dark room",
+    "blackout blinds"
+   ]
+  },
+  {
+   "id": "beds.soundproofing",
+   "label": "Soundproofed room",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": [
+    "soundproof",
+    "no hallway noise",
+    "can't hear bar",
+    "quiet room",
+    "good insulation"
+   ],
+   "soft_conflicts_with": [
+    "location.near_nightlife"
+   ]
+  },
+  {
+   "id": "beds.away_from_elevator",
+   "label": "Room away from elevator / bar",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": [
+    "away from noise"
+   ]
+  },
+  {
+   "id": "beds.sleep_kit",
+   "label": "Sleep kit (earplugs, eye mask)",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": [
+    "earplugs"
+   ]
+  },
+  {
+   "id": "beds.white_noise_machine",
+   "label": "White-noise machine",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "beds.reading_lights_both_sides",
+   "label": "Reading light on both sides of the bed",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": [
+    "bedside lamps both sides",
+    "reading light"
+   ]
+  },
+  {
+   "id": "beds.sockets_by_bed",
+   "label": "Power sockets next to the bed",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": [
+    "plug by bed"
+   ]
+  },
+  {
+   "id": "beds.turndown_service",
+   "label": "Turndown service",
+   "category": "beds",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "bathroom.private_bathroom",
+   "label": "Private bathroom",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": [
+    "ensuite",
+    "en-suite"
+   ],
+   "conflicts_with": [
+    "bathroom.shared_bathroom"
+   ]
+  },
+  {
+   "id": "bathroom.shared_bathroom",
+   "label": "Shared bathroom",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": [],
+   "conflicts_with": [
+    "bathroom.private_bathroom"
+   ]
+  },
+  {
+   "id": "bathroom.rain_shower",
+   "label": "Rain shower",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": [
+    "rainfall shower"
+   ],
+   "implies": [
+    "bathroom.private_bathroom"
+   ]
+  },
+  {
+   "id": "bathroom.walk_in_shower",
+   "label": "Walk-in shower",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "bathroom.bathtub",
+   "label": "Bathtub",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": [
+    "bath",
+    "tub"
+   ]
+  },
+  {
+   "id": "bathroom.freestanding_bathtub",
+   "label": "Freestanding bathtub",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "bathroom.shower_and_bathtub",
+   "label": "Separate shower and bathtub",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "bathroom.jacuzzi_bathtub",
+   "label": "Jacuzzi / whirlpool bathtub",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "bathroom.double_sink",
+   "label": "Double sink",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "bathroom.bidet",
+   "label": "Bidet",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "bathroom.japanese_toilet",
+   "label": "Japanese smart toilet",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": [
+    "washlet"
+   ]
+  },
+  {
+   "id": "bathroom.separate_toilet",
+   "label": "Separate toilet",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "bathroom.heated_floor_bathroom",
+   "label": "Heated bathroom floor",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "bathroom.bathrobe",
+   "label": "Bathrobe",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "bathroom.slippers",
+   "label": "Slippers",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "bathroom.premium_toiletries",
+   "label": "Premium toiletries",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "bathroom.refillable_toiletries",
+   "label": "Refillable toiletries (no mini bottles)",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "bathroom.hairdryer",
+   "label": "Hairdryer",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "bathroom.magnifying_mirror",
+   "label": "Magnifying mirror",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "bathroom.towel_warmer",
+   "label": "Towel warmer",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "bathroom.steam_shower",
+   "label": "Steam shower",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "bathroom.outdoor_shower",
+   "label": "Outdoor shower",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "bathroom.bathroom_window",
+   "label": "Bathroom with window",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "bathroom.strong_water_pressure",
+   "label": "Strong water pressure",
+   "category": "bathroom",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.air_conditioning",
+   "label": "Air conditioning",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": [
+    "ac",
+    "aircon"
+   ]
+  },
+  {
+   "id": "room_amenities.heating",
+   "label": "Heating",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.ceiling_fan",
+   "label": "Ceiling fan",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.individual_climate_control",
+   "label": "Individual climate control",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.fireplace",
+   "label": "Fireplace",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.balcony",
+   "label": "Balcony",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.terrace",
+   "label": "Terrace",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": [
+    "patio"
+   ]
+  },
+  {
+   "id": "room_amenities.opening_windows",
+   "label": "Windows that open",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": [
+    "fresh air",
+    "window opens"
+   ]
+  },
+  {
+   "id": "room_amenities.floor_to_ceiling_windows",
+   "label": "Floor-to-ceiling windows",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.natural_light",
+   "label": "Lots of natural light",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": [
+    "bright room",
+    "sunny"
+   ]
+  },
+  {
+   "id": "room_amenities.desk",
+   "label": "Work desk",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": [
+    "desk",
+    "workspace"
+   ]
+  },
+  {
+   "id": "room_amenities.ergonomic_chair",
+   "label": "Ergonomic office chair",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.external_monitor",
+   "label": "External monitor",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.seating_area",
+   "label": "Seating area",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": [
+    "armchair"
+   ]
+  },
+  {
+   "id": "room_amenities.sofa",
+   "label": "Sofa",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": [
+    "couch"
+   ]
+  },
+  {
+   "id": "room_amenities.wardrobe",
+   "label": "Wardrobe",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.clothes_rack",
+   "label": "Clothes rack",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.iron",
+   "label": "Iron & ironing board",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.trouser_press",
+   "label": "Trouser press",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.in_room_safe",
+   "label": "In-room safe",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": [
+    "safe"
+   ]
+  },
+  {
+   "id": "room_amenities.laptop_safe",
+   "label": "Laptop-size safe",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.tv",
+   "label": "TV",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.smart_tv",
+   "label": "Smart TV",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.streaming_services",
+   "label": "Streaming services (Netflix etc.)",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": [
+    "netflix"
+   ]
+  },
+  {
+   "id": "room_amenities.chromecast",
+   "label": "Screen casting (Chromecast / AirPlay)",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": [
+    "airplay"
+   ]
+  },
+  {
+   "id": "room_amenities.satellite_channels",
+   "label": "Satellite channels",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.bluetooth_speaker",
+   "label": "Bluetooth speaker",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.record_player",
+   "label": "Record player",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.game_console",
+   "label": "Game console",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": [
+    "playstation",
+    "xbox"
+   ]
+  },
+  {
+   "id": "room_amenities.usb_charging",
+   "label": "USB charging ports",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.universal_sockets",
+   "label": "Universal power sockets",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": [
+    "adapter"
+   ]
+  },
+  {
+   "id": "room_amenities.wireless_charger",
+   "label": "Wireless phone charger",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.telephone",
+   "label": "Telephone",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.alarm_clock",
+   "label": "Alarm clock",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.smart_room_controls",
+   "label": "Smart room controls / tablet",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.voice_assistant",
+   "label": "Voice assistant",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.air_purifier",
+   "label": "Air purifier",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.humidifier",
+   "label": "Humidifier",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.dehumidifier",
+   "label": "Dehumidifier",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.mosquito_net",
+   "label": "Mosquito net",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.full_length_mirror",
+   "label": "Full-length mirror",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.yoga_mat",
+   "label": "Yoga mat in room",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": [
+    "yoga mat"
+   ]
+  },
+  {
+   "id": "room_amenities.in_room_fitness",
+   "label": "In-room fitness equipment",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": [
+    "peloton"
+   ]
+  },
+  {
+   "id": "room_amenities.hammock",
+   "label": "Hammock",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.telescope",
+   "label": "Telescope",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.piano",
+   "label": "Piano",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.board_games",
+   "label": "Board games",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.books_library",
+   "label": "Books in room",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.umbrella",
+   "label": "Umbrella provided",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "room_amenities.luggage_rack",
+   "label": "Luggage rack",
+   "category": "room_amenities",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "kitchen.kitchen",
+   "label": "Full kitchen",
+   "category": "kitchen",
+   "type": "boolean",
+   "synonyms": [
+    "self catering",
+    "cook"
+   ]
+  },
+  {
+   "id": "kitchen.kitchenette",
+   "label": "Kitchenette",
+   "category": "kitchen",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "kitchen.refrigerator",
+   "label": "Refrigerator",
+   "category": "kitchen",
+   "type": "boolean",
+   "synonyms": [
+    "fridge"
+   ]
+  },
+  {
+   "id": "kitchen.minibar",
+   "label": "Minibar",
+   "category": "kitchen",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "kitchen.free_minibar",
+   "label": "Free minibar",
+   "category": "kitchen",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "kitchen.microwave",
+   "label": "Microwave",
+   "category": "kitchen",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "kitchen.oven",
+   "label": "Oven",
+   "category": "kitchen",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "kitchen.stovetop",
+   "label": "Stovetop",
+   "category": "kitchen",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "kitchen.dishwasher",
+   "label": "Dishwasher",
+   "category": "kitchen",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "kitchen.coffee_machine",
+   "label": "Coffee machine",
+   "category": "kitchen",
+   "type": "boolean",
+   "synonyms": [
+    "nespresso",
+    "espresso"
+   ]
+  },
+  {
+   "id": "kitchen.kettle",
+   "label": "Electric kettle",
+   "category": "kitchen",
+   "type": "boolean",
+   "synonyms": [
+    "tea"
+   ]
+  },
+  {
+   "id": "kitchen.toaster",
+   "label": "Toaster",
+   "category": "kitchen",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "kitchen.blender",
+   "label": "Blender",
+   "category": "kitchen",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "kitchen.cookware",
+   "label": "Cookware & utensils",
+   "category": "kitchen",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "kitchen.dining_table",
+   "label": "Dining table",
+   "category": "kitchen",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "kitchen.bottled_water_free",
+   "label": "Free bottled water",
+   "category": "kitchen",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "kitchen.wine_cooler",
+   "label": "Wine cooler",
+   "category": "kitchen",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "kitchen.baby_bottle_warmer",
+   "label": "Baby bottle warmer",
+   "category": "kitchen",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "kitchen.outdoor_grill",
+   "label": "Outdoor grill / BBQ",
+   "category": "kitchen",
+   "type": "boolean",
+   "synonyms": [
+    "bbq",
+    "barbecue"
+   ]
+  },
+  {
+   "id": "kitchen.washing_machine",
+   "label": "Washing machine",
+   "category": "kitchen",
+   "type": "boolean",
+   "synonyms": [
+    "washer"
+   ]
+  },
+  {
+   "id": "kitchen.dryer",
+   "label": "Tumble dryer",
+   "category": "kitchen",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "view.sea_view",
+   "label": "Sea view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "sea view"
+   ],
+   "requires_geo_feature": "coast"
+  },
+  {
+   "id": "view.ocean_view",
+   "label": "Ocean view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "ocean view"
+   ],
+   "requires_geo_feature": "coast"
+  },
+  {
+   "id": "view.lake_view",
+   "label": "Lake view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "lake view"
+   ],
+   "requires_geo_feature": "lake"
+  },
+  {
+   "id": "view.river_view",
+   "label": "River view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "river view"
+   ]
+  },
+  {
+   "id": "view.canal_view",
+   "label": "Canal view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "canal view"
+   ],
+   "requires_geo_feature": "canals"
+  },
+  {
+   "id": "view.mountain_view",
+   "label": "Mountain view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "mountain view"
+   ],
+   "requires_geo_feature": "mountains"
+  },
+  {
+   "id": "view.city_view",
+   "label": "City view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "city view"
+   ]
+  },
+  {
+   "id": "view.skyline_view",
+   "label": "Skyline view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "skyline view"
+   ]
+  },
+  {
+   "id": "view.garden_view",
+   "label": "Garden view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "garden view"
+   ]
+  },
+  {
+   "id": "view.pool_view",
+   "label": "Pool view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "pool view"
+   ]
+  },
+  {
+   "id": "view.park_view",
+   "label": "Park view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "park view"
+   ]
+  },
+  {
+   "id": "view.courtyard_view",
+   "label": "Courtyard view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "courtyard view"
+   ]
+  },
+  {
+   "id": "view.landmark_view",
+   "label": "Landmark view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "landmark view"
+   ]
+  },
+  {
+   "id": "view.old_town_view",
+   "label": "Old town view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "old town view"
+   ]
+  },
+  {
+   "id": "view.volcano_view",
+   "label": "Volcano view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "volcano view"
+   ],
+   "requires_geo_feature": "volcano"
+  },
+  {
+   "id": "view.vineyard_view",
+   "label": "Vineyard view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "vineyard view"
+   ]
+  },
+  {
+   "id": "view.forest_view",
+   "label": "Forest view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "forest view"
+   ]
+  },
+  {
+   "id": "view.desert_view",
+   "label": "Desert view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "desert view"
+   ]
+  },
+  {
+   "id": "view.harbour_view",
+   "label": "Harbour view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "harbour view"
+   ]
+  },
+  {
+   "id": "view.sunset_view",
+   "label": "Sunset view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "sunset view"
+   ]
+  },
+  {
+   "id": "view.sunrise_view",
+   "label": "Sunrise view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "sunrise view"
+   ]
+  },
+  {
+   "id": "view.ski_slope_view",
+   "label": "Ski slope view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "ski slope view"
+   ],
+   "requires_geo_feature": "ski_area"
+  },
+  {
+   "id": "view.northern_lights_view",
+   "label": "Northern lights view",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": [
+    "northern lights view"
+   ],
+   "requires_geo_feature": "aurora_zone"
+  },
+  {
+   "id": "view.no_view_ok",
+   "label": "View not important (cheaper)",
+   "category": "view",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "connectivity.wifi_speed",
+   "label": "Wi-Fi speed (measured)",
+   "category": "connectivity",
+   "type": "range",
+   "synonyms": [
+    "fast wifi",
+    "strong wifi",
+    "good internet"
+   ],
+   "unit": "Mbps",
+   "min": 1,
+   "max": 2000,
+   "step": 5
+  },
+  {
+   "id": "connectivity.free_wifi",
+   "label": "Free Wi-Fi",
+   "category": "connectivity",
+   "type": "boolean",
+   "synonyms": [
+    "wifi",
+    "internet"
+   ],
+   "conflicts_with": [
+    "style.digital_detox"
+   ]
+  },
+  {
+   "id": "connectivity.wifi_in_room",
+   "label": "Wi-Fi in the room (not only lobby)",
+   "category": "connectivity",
+   "type": "boolean",
+   "synonyms": [
+    "in-room wifi",
+    "wifi in room"
+   ],
+   "implies": [
+    "connectivity.free_wifi"
+   ]
+  },
+  {
+   "id": "connectivity.wired_ethernet",
+   "label": "Wired ethernet",
+   "category": "connectivity",
+   "type": "boolean",
+   "synonyms": [
+    "lan cable"
+   ]
+  },
+  {
+   "id": "connectivity.mobile_hotspot",
+   "label": "Portable hotspot provided",
+   "category": "connectivity",
+   "type": "boolean",
+   "synonyms": [
+    "pocket wifi"
+   ]
+  },
+  {
+   "id": "connectivity.free_international_calls",
+   "label": "Free international calls",
+   "category": "connectivity",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "connectivity.coworking_space",
+   "label": "Coworking lounge",
+   "category": "connectivity",
+   "type": "boolean",
+   "synonyms": [
+    "coworking",
+    "co-working",
+    "shared workspace"
+   ],
+   "soft_conflicts_with": [
+    "style.digital_detox"
+   ]
+  },
+  {
+   "id": "connectivity.reading_room",
+   "label": "Reading room / library",
+   "category": "connectivity",
+   "type": "boolean",
+   "synonyms": [
+    "library",
+    "quiet lounge",
+    "reading room"
+   ]
+  },
+  {
+   "id": "connectivity.business_centre",
+   "label": "Business centre",
+   "category": "connectivity",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "connectivity.meeting_rooms",
+   "label": "Meeting rooms",
+   "category": "connectivity",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "connectivity.conference_hall",
+   "label": "Conference hall",
+   "category": "connectivity",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "connectivity.event_space",
+   "label": "Event space",
+   "category": "connectivity",
+   "type": "boolean",
+   "synonyms": [
+    "wedding venue"
+   ]
+  },
+  {
+   "id": "connectivity.printer_access",
+   "label": "Printer access",
+   "category": "connectivity",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "connectivity.phone_booths",
+   "label": "Private phone / video-call booths",
+   "category": "connectivity",
+   "type": "boolean",
+   "synonyms": [
+    "zoom booth"
+   ]
+  },
+  {
+   "id": "connectivity.day_use_rooms",
+   "label": "Day-use rooms",
+   "category": "connectivity",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "connectivity.long_stay_work_setup",
+   "label": "Remote-work room package",
+   "category": "connectivity",
+   "type": "boolean",
+   "synonyms": [
+    "workation"
+   ]
+  },
+  {
+   "id": "common_areas.lounge",
+   "label": "Lounge",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.lounge_natural_light",
+   "label": "Lounge with natural light",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": [
+    "bright lounge",
+    "sunny lounge"
+   ]
+  },
+  {
+   "id": "common_areas.garden",
+   "label": "Garden",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.rooftop_terrace",
+   "label": "Rooftop terrace",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": [
+    "roof terrace"
+   ]
+  },
+  {
+   "id": "common_areas.shared_kitchen",
+   "label": "Shared kitchen",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.games_room",
+   "label": "Games room",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.billiards",
+   "label": "Billiards",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.library",
+   "label": "Library",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.cinema_room",
+   "label": "Cinema room",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.music_room",
+   "label": "Music room",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.art_gallery",
+   "label": "Art gallery",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.chapel",
+   "label": "Chapel",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.prayer_room",
+   "label": "Prayer room",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.smoking_area",
+   "label": "Designated smoking area",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.courtyard",
+   "label": "Courtyard",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.sun_deck",
+   "label": "Sun deck",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.fire_pit",
+   "label": "Fire pit",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.picnic_area",
+   "label": "Picnic area",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.shared_lounge_tv",
+   "label": "Shared TV lounge",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.elevator",
+   "label": "Elevator",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": [
+    "lift"
+   ]
+  },
+  {
+   "id": "common_areas.luggage_storage",
+   "label": "Luggage storage",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.lockers",
+   "label": "Lockers",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.gift_shop",
+   "label": "Gift shop",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.convenience_store",
+   "label": "Convenience store on site",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.atm_on_site",
+   "label": "ATM on site",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.hair_salon",
+   "label": "Hair salon",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.laundry_service",
+   "label": "Laundry service",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.self_service_laundry",
+   "label": "Self-service laundry",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.dry_cleaning",
+   "label": "Dry cleaning",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "common_areas.shoe_shine",
+   "label": "Shoe shine",
+   "category": "common_areas",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.room_only",
+   "label": "Room only",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": [
+    "room only"
+   ],
+   "exclusive_group": "meal_plan",
+   "conflicts_with": [
+    "meals.buffet_breakfast"
+   ]
+  },
+  {
+   "id": "meals.breakfast_included",
+   "label": "Breakfast included",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": [
+    "breakfast included"
+   ],
+   "exclusive_group": "meal_plan"
+  },
+  {
+   "id": "meals.half_board",
+   "label": "Half board",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": [
+    "half board"
+   ],
+   "exclusive_group": "meal_plan",
+   "implies": [
+    "meals.breakfast_included"
+   ]
+  },
+  {
+   "id": "meals.full_board",
+   "label": "Full board",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": [
+    "full board"
+   ],
+   "exclusive_group": "meal_plan",
+   "implies": [
+    "meals.breakfast_included",
+    "meals.dinner_included"
+   ]
+  },
+  {
+   "id": "meals.all_inclusive",
+   "label": "All inclusive",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": [
+    "all inclusive"
+   ],
+   "exclusive_group": "meal_plan",
+   "implies": [
+    "meals.breakfast_included",
+    "meals.dinner_included"
+   ]
+  },
+  {
+   "id": "meals.ultra_all_inclusive",
+   "label": "Ultra all inclusive",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": [
+    "ultra all inclusive"
+   ],
+   "exclusive_group": "meal_plan"
+  },
+  {
+   "id": "meals.buffet_breakfast",
+   "label": "Buffet breakfast",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": [],
+   "conflicts_with": [
+    "meals.room_only"
+   ]
+  },
+  {
+   "id": "meals.continental_breakfast",
+   "label": "Continental breakfast",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.english_breakfast",
+   "label": "Full English breakfast",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.american_breakfast",
+   "label": "American breakfast",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.asian_breakfast",
+   "label": "Asian breakfast",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.breakfast_in_bed",
+   "label": "Breakfast in bed",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.late_breakfast",
+   "label": "Breakfast served until 11:00+",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": [
+    "late breakfast"
+   ]
+  },
+  {
+   "id": "meals.early_breakfast",
+   "label": "Breakfast from 06:00",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": [
+    "early breakfast"
+   ]
+  },
+  {
+   "id": "meals.grab_and_go_breakfast",
+   "label": "Grab-and-go breakfast",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.vegetarian_options",
+   "label": "Vegetarian options",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": [
+    "vegetarian"
+   ]
+  },
+  {
+   "id": "meals.vegan_options",
+   "label": "Vegan options",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": [
+    "vegan"
+   ]
+  },
+  {
+   "id": "meals.gluten_free_options",
+   "label": "Gluten-free options",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": [
+    "celiac",
+    "coeliac"
+   ]
+  },
+  {
+   "id": "meals.lactose_free_options",
+   "label": "Lactose-free options",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.nut_free_kitchen",
+   "label": "Nut-allergy aware kitchen",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.halal_food",
+   "label": "Halal food",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": [
+    "halal"
+   ]
+  },
+  {
+   "id": "meals.kosher_food",
+   "label": "Kosher food",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": [
+    "kosher"
+   ]
+  },
+  {
+   "id": "meals.keto_options",
+   "label": "Keto / low-carb options",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.organic_food",
+   "label": "Organic / local produce",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": [
+    "farm to table"
+   ]
+  },
+  {
+   "id": "meals.kids_menu",
+   "label": "Kids' menu",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.restaurant",
+   "label": "Restaurant on site",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.michelin_restaurant",
+   "label": "Michelin-starred restaurant",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": [
+    "michelin"
+   ],
+   "soft_conflicts_with": [
+    "style.budget_style"
+   ]
+  },
+  {
+   "id": "meals.fine_dining",
+   "label": "Fine dining",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.rooftop_restaurant",
+   "label": "Rooftop restaurant",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.bar",
+   "label": "Bar",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": [],
+   "conflicts_with": [
+    "style.alcohol_free_property"
+   ]
+  },
+  {
+   "id": "meals.rooftop_bar",
+   "label": "Rooftop bar",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.wine_bar",
+   "label": "Wine bar",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": [],
+   "conflicts_with": [
+    "style.alcohol_free_property"
+   ]
+  },
+  {
+   "id": "meals.cocktail_bar",
+   "label": "Cocktail bar",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": [],
+   "conflicts_with": [
+    "style.alcohol_free_property"
+   ]
+  },
+  {
+   "id": "meals.pool_bar",
+   "label": "Pool bar",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": [
+    "swim-up bar"
+   ]
+  },
+  {
+   "id": "meals.cafe",
+   "label": "Café",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": [
+    "coffee shop"
+   ]
+  },
+  {
+   "id": "meals.bakery",
+   "label": "Bakery on site",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.room_service",
+   "label": "Room service",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.room_service_24h",
+   "label": "24-hour room service",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.snack_bar",
+   "label": "Snack bar",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.happy_hour",
+   "label": "Happy hour",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.free_drinks_evening",
+   "label": "Free evening drinks",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.afternoon_tea",
+   "label": "Afternoon tea",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.packed_lunch",
+   "label": "Packed lunch on request",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.private_chef",
+   "label": "Private chef available",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.bbq_facilities",
+   "label": "BBQ facilities",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.cooking_classes",
+   "label": "Cooking classes",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.wine_tasting",
+   "label": "Wine tasting",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.brewery_on_site",
+   "label": "Brewery / distillery on site",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.tea_ceremony",
+   "label": "Tea ceremony",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.in_room_dining_menu",
+   "label": "In-room dining menu",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "meals.dinner_included",
+   "label": "Dinner included",
+   "category": "meals",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "cuisine.italian",
+   "label": "Italian cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "italian food",
+    "italian restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.french",
+   "label": "French cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "french food",
+    "french restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.japanese",
+   "label": "Japanese cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "japanese food",
+    "japanese restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.chinese",
+   "label": "Chinese cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "chinese food",
+    "chinese restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.thai",
+   "label": "Thai cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "thai food",
+    "thai restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.indian",
+   "label": "Indian cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "indian food",
+    "indian restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.mexican",
+   "label": "Mexican cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "mexican food",
+    "mexican restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.spanish",
+   "label": "Spanish cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "spanish food",
+    "spanish restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.greek",
+   "label": "Greek cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "greek food",
+    "greek restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.turkish",
+   "label": "Turkish cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "turkish food",
+    "turkish restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.lebanese",
+   "label": "Lebanese cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "lebanese food",
+    "lebanese restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.moroccan",
+   "label": "Moroccan cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "moroccan food",
+    "moroccan restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.korean",
+   "label": "Korean cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "korean food",
+    "korean restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.vietnamese",
+   "label": "Vietnamese cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "vietnamese food",
+    "vietnamese restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.seafood",
+   "label": "Seafood cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "seafood food",
+    "seafood restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.steakhouse",
+   "label": "Steakhouse cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "steakhouse food",
+    "steakhouse restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.local",
+   "label": "Local cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "local food",
+    "local restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.mediterranean",
+   "label": "Mediterranean cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "mediterranean food",
+    "mediterranean restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.middle_eastern",
+   "label": "Middle eastern cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "middle_eastern food",
+    "middle_eastern restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.fusion",
+   "label": "Fusion cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "fusion food",
+    "fusion restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.peruvian",
+   "label": "Peruvian cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "peruvian food",
+    "peruvian restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.brazilian",
+   "label": "Brazilian cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "brazilian food",
+    "brazilian restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.german",
+   "label": "German cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "german food",
+    "german restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.dutch",
+   "label": "Dutch cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "dutch food",
+    "dutch restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.scandinavian",
+   "label": "Scandinavian cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "scandinavian food",
+    "scandinavian restaurant"
+   ]
+  },
+  {
+   "id": "cuisine.georgian",
+   "label": "Georgian cuisine on site",
+   "category": "cuisine",
+   "type": "boolean",
+   "synonyms": [
+    "georgian food",
+    "georgian restaurant"
+   ]
+  },
+  {
+   "id": "wellness.spa",
+   "label": "Spa",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": [
+    "wellness"
+   ]
+  },
+  {
+   "id": "wellness.sauna",
+   "label": "Sauna",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "wellness.infrared_sauna",
+   "label": "Infrared sauna",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "wellness.steam_room",
+   "label": "Steam room",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "wellness.hammam",
+   "label": "Hammam / Turkish bath",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": [
+    "turkish bath"
+   ]
+  },
+  {
+   "id": "wellness.onsen",
+   "label": "Onsen / hot spring bath",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": [
+    "hot spring"
+   ]
+  },
+  {
+   "id": "wellness.hot_tub",
+   "label": "Hot tub",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": [
+    "jacuzzi",
+    "whirlpool"
+   ]
+  },
+  {
+   "id": "wellness.massage",
+   "label": "Massage",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "wellness.couples_massage",
+   "label": "Couples massage",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "wellness.facial_treatments",
+   "label": "Facial treatments",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "wellness.manicure_pedicure",
+   "label": "Manicure / pedicure",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "wellness.thalasso",
+   "label": "Thalassotherapy",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "wellness.cold_plunge",
+   "label": "Cold plunge / ice bath",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": [
+    "ice bath"
+   ]
+  },
+  {
+   "id": "wellness.salt_room",
+   "label": "Salt room",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "wellness.float_tank",
+   "label": "Floatation tank",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "wellness.cryotherapy",
+   "label": "Cryotherapy",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "wellness.meditation_room",
+   "label": "Meditation room",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": [
+    "meditation"
+   ]
+  },
+  {
+   "id": "wellness.yoga_classes",
+   "label": "Yoga classes",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": [
+    "yoga class"
+   ]
+  },
+  {
+   "id": "wellness.pilates_classes",
+   "label": "Pilates classes",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "wellness.fitness_centre",
+   "label": "Fitness centre",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": [
+    "gym"
+   ]
+  },
+  {
+   "id": "wellness.gym_24h",
+   "label": "24-hour gym",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": [],
+   "implies": [
+    "wellness.fitness_centre"
+   ]
+  },
+  {
+   "id": "wellness.personal_trainer",
+   "label": "Personal trainer",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "wellness.free_weights",
+   "label": "Free weights",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "wellness.peloton_bikes",
+   "label": "Spin / Peloton bikes",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "wellness.running_routes",
+   "label": "Running routes / maps",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": [
+    "jogging"
+   ]
+  },
+  {
+   "id": "wellness.boxing_studio",
+   "label": "Boxing studio",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "wellness.medical_spa",
+   "label": "Medical spa",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "wellness.detox_programme",
+   "label": "Detox programme",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "wellness.sleep_programme",
+   "label": "Sleep programme",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "wellness.ayurveda",
+   "label": "Ayurveda",
+   "category": "wellness",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "pool.pool_length",
+   "label": "Pool length",
+   "category": "pool",
+   "type": "range",
+   "synonyms": [
+    "lap pool",
+    "long pool"
+   ],
+   "unit": "m",
+   "min": 5,
+   "max": 100,
+   "step": 1
+  },
+  {
+   "id": "pool.pool_water_temperature",
+   "label": "Pool water temperature",
+   "category": "pool",
+   "type": "range",
+   "synonyms": [
+    "warm pool"
+   ],
+   "unit": "°C",
+   "min": 15,
+   "max": 40,
+   "step": 1
+  },
+  {
+   "id": "pool.swimming_pool",
+   "label": "Swimming pool",
+   "category": "pool",
+   "type": "boolean",
+   "synonyms": [
+    "pool"
+   ]
+  },
+  {
+   "id": "pool.indoor_pool",
+   "label": "Indoor pool",
+   "category": "pool",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "pool.outdoor_pool",
+   "label": "Outdoor pool",
+   "category": "pool",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "pool.heated_pool",
+   "label": "Heated pool",
+   "category": "pool",
+   "type": "boolean",
+   "synonyms": [],
+   "implies": [
+    "pool.swimming_pool"
+   ]
+  },
+  {
+   "id": "pool.infinity_pool",
+   "label": "Infinity pool",
+   "category": "pool",
+   "type": "boolean",
+   "synonyms": [],
+   "implies": [
+    "pool.swimming_pool"
+   ]
+  },
+  {
+   "id": "pool.rooftop_pool",
+   "label": "Rooftop pool",
+   "category": "pool",
+   "type": "boolean",
+   "synonyms": [],
+   "implies": [
+    "pool.swimming_pool"
+   ]
+  },
+  {
+   "id": "pool.saltwater_pool",
+   "label": "Saltwater pool",
+   "category": "pool",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "pool.kids_pool",
+   "label": "Kids' pool",
+   "category": "pool",
+   "type": "boolean",
+   "synonyms": [
+    "children's pool"
+   ]
+  },
+  {
+   "id": "pool.adults_only_pool",
+   "label": "Adults-only pool",
+   "category": "pool",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "pool.water_slide",
+   "label": "Water slide",
+   "category": "pool",
+   "type": "boolean",
+   "synonyms": [
+    "waterpark"
+   ]
+  },
+  {
+   "id": "pool.lazy_river",
+   "label": "Lazy river",
+   "category": "pool",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "pool.swim_up_room",
+   "label": "Swim-up room",
+   "category": "pool",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "pool.pool_open_all_year",
+   "label": "Pool open year-round",
+   "category": "pool",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "pool.lifeguard",
+   "label": "Lifeguard on duty",
+   "category": "pool",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "pool.pool_towels",
+   "label": "Pool towels provided",
+   "category": "pool",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "pool.sun_loungers",
+   "label": "Sun loungers",
+   "category": "pool",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "pool.cabanas",
+   "label": "Cabanas",
+   "category": "pool",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "pool.natural_pool",
+   "label": "Natural / swimming pond",
+   "category": "pool",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "pool.private_beach",
+   "label": "Private beach",
+   "category": "pool",
+   "type": "boolean",
+   "synonyms": [],
+   "requires_geo_feature": "coast"
+  },
+  {
+   "id": "pool.beach_towels",
+   "label": "Beach towels & chairs",
+   "category": "pool",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "family.min_child_age_allowed",
+   "label": "Minimum child age allowed",
+   "category": "family",
+   "type": "range",
+   "synonyms": [],
+   "unit": "years",
+   "min": 0,
+   "max": 18,
+   "step": 1
+  },
+  {
+   "id": "family.kids_club",
+   "label": "Kids' club",
+   "category": "family",
+   "type": "boolean",
+   "synonyms": [],
+   "conflicts_with": [
+    "style.adults_only"
+   ]
+  },
+  {
+   "id": "family.teen_club",
+   "label": "Teen club",
+   "category": "family",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "family.babysitting",
+   "label": "Babysitting",
+   "category": "family",
+   "type": "boolean",
+   "synonyms": [
+    "nanny"
+   ]
+  },
+  {
+   "id": "family.playground",
+   "label": "Playground",
+   "category": "family",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "family.indoor_play_area",
+   "label": "Indoor play area",
+   "category": "family",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "family.kids_stay_free",
+   "label": "Kids stay free",
+   "category": "family",
+   "type": "boolean",
+   "synonyms": [],
+   "conflicts_with": [
+    "style.adults_only"
+   ]
+  },
+  {
+   "id": "family.baby_equipment",
+   "label": "Baby equipment (high chair, bath)",
+   "category": "family",
+   "type": "boolean",
+   "synonyms": [
+    "high chair"
+   ]
+  },
+  {
+   "id": "family.stroller_rental",
+   "label": "Stroller rental",
+   "category": "family",
+   "type": "boolean",
+   "synonyms": [
+    "pram"
+   ]
+  },
+  {
+   "id": "family.baby_monitor",
+   "label": "Baby monitor",
+   "category": "family",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "family.childproofed_rooms",
+   "label": "Child-proofed rooms",
+   "category": "family",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "family.kids_activities",
+   "label": "Kids' activities programme",
+   "category": "family",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "family.family_entertainment",
+   "label": "Evening family entertainment",
+   "category": "family",
+   "type": "boolean",
+   "synonyms": [
+    "mini disco"
+   ]
+  },
+  {
+   "id": "family.children_welcome_amenities",
+   "label": "Welcome gifts for kids",
+   "category": "family",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "family.bunk_room_for_kids",
+   "label": "Separate kids' bunk room",
+   "category": "family",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "family.changing_table",
+   "label": "Baby changing table",
+   "category": "family",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "family.kids_tv_channels",
+   "label": "Kids' TV channels",
+   "category": "family",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "family.family_bathroom",
+   "label": "Family bathroom",
+   "category": "family",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "family.baby_food_available",
+   "label": "Baby food available",
+   "category": "family",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "accessibility.wheelchair_accessible",
+   "label": "Wheelchair accessible",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": [
+    "wheelchair",
+    "disabled access"
+   ]
+  },
+  {
+   "id": "accessibility.step_free_access",
+   "label": "Step-free access",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": [
+    "no steps"
+   ]
+  },
+  {
+   "id": "accessibility.roll_in_shower",
+   "label": "Roll-in shower",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "accessibility.shower_chair",
+   "label": "Shower chair",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "accessibility.grab_bars",
+   "label": "Grab bars in bathroom",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": [
+    "grab rails"
+   ]
+  },
+  {
+   "id": "accessibility.raised_toilet",
+   "label": "Raised toilet",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "accessibility.lowered_sink",
+   "label": "Lowered sink",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "accessibility.wide_doorways",
+   "label": "Doorways ≥ 80 cm",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "accessibility.accessible_parking",
+   "label": "Accessible parking",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "accessibility.elevator_to_all_floors",
+   "label": "Elevator to all floors",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "accessibility.braille_signage",
+   "label": "Braille / tactile signage",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "accessibility.visual_alarms",
+   "label": "Visual fire alarms",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "accessibility.hearing_loop",
+   "label": "Hearing loop",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "accessibility.tty_phone",
+   "label": "TTY phone",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "accessibility.service_animals_allowed",
+   "label": "Service animals allowed",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": [
+    "guide dog"
+   ]
+  },
+  {
+   "id": "accessibility.accessible_pool_lift",
+   "label": "Pool hoist / lift",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "accessibility.hoist_in_room",
+   "label": "Ceiling hoist in room",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "accessibility.adjustable_height_bed",
+   "label": "Adjustable-height bed",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "accessibility.low_bed",
+   "label": "Low bed",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "accessibility.emergency_cord",
+   "label": "Emergency cord in bathroom",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "accessibility.accessible_restaurant",
+   "label": "Accessible restaurant",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "accessibility.sign_language_staff",
+   "label": "Sign-language staff",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "accessibility.sensory_friendly",
+   "label": "Sensory-friendly / autism-friendly",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": [
+    "autism"
+   ]
+  },
+  {
+   "id": "accessibility.allergy_friendly_rooms",
+   "label": "Allergy-friendly rooms",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "accessibility.mobility_scooter_charging",
+   "label": "Mobility-scooter charging",
+   "category": "accessibility",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "pets.max_pet_weight",
+   "label": "Max pet weight allowed",
+   "category": "pets",
+   "type": "range",
+   "synonyms": [
+    "big dog",
+    "small dog"
+   ],
+   "unit": "kg",
+   "min": 1,
+   "max": 80,
+   "step": 1
+  },
+  {
+   "id": "pets.max_pets",
+   "label": "Max number of pets",
+   "category": "pets",
+   "type": "range",
+   "synonyms": [],
+   "unit": "pets",
+   "min": 1,
+   "max": 5,
+   "step": 1
+  },
+  {
+   "id": "pets.pet_fee",
+   "label": "Pet fee per night",
+   "category": "pets",
+   "type": "range",
+   "synonyms": [],
+   "unit": "EUR",
+   "min": 0,
+   "max": 200,
+   "step": 5
+  },
+  {
+   "id": "pets.pets_allowed",
+   "label": "Pets allowed",
+   "category": "pets",
+   "type": "boolean",
+   "synonyms": [
+    "pet friendly",
+    "pet-friendly",
+    "bring my dog",
+    "with my cat"
+   ],
+   "exclusive_group": "pet_policy"
+  },
+  {
+   "id": "pets.no_pets_on_property",
+   "label": "No pets on property (allergy-safe)",
+   "category": "pets",
+   "type": "boolean",
+   "synonyms": [
+    "no pets",
+    "pet free",
+    "allergic to dogs"
+   ],
+   "exclusive_group": "pet_policy",
+   "conflicts_with": [
+    "pets.dogs_allowed",
+    "pets.cats_allowed",
+    "pets.free_pet_stay"
+   ]
+  },
+  {
+   "id": "pets.dogs_allowed",
+   "label": "Dogs allowed",
+   "category": "pets",
+   "type": "boolean",
+   "synonyms": [
+    "dog friendly"
+   ],
+   "conflicts_with": [
+    "pets.no_pets_on_property"
+   ],
+   "implies": [
+    "pets.pets_allowed"
+   ]
+  },
+  {
+   "id": "pets.cats_allowed",
+   "label": "Cats allowed",
+   "category": "pets",
+   "type": "boolean",
+   "synonyms": [],
+   "conflicts_with": [
+    "pets.no_pets_on_property"
+   ],
+   "implies": [
+    "pets.pets_allowed"
+   ]
+  },
+  {
+   "id": "pets.free_pet_stay",
+   "label": "Pets stay free",
+   "category": "pets",
+   "type": "boolean",
+   "synonyms": [],
+   "conflicts_with": [
+    "pets.no_pets_on_property"
+   ]
+  },
+  {
+   "id": "pets.pet_bed_and_bowls",
+   "label": "Pet bed & bowls",
+   "category": "pets",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "pets.dog_walking_service",
+   "label": "Dog-walking service",
+   "category": "pets",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "pets.pet_sitting",
+   "label": "Pet sitting",
+   "category": "pets",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "pets.dog_park_nearby",
+   "label": "Dog park nearby",
+   "category": "pets",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "pets.pet_menu",
+   "label": "Pet menu",
+   "category": "pets",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "pets.pets_in_restaurant",
+   "label": "Pets allowed in restaurant",
+   "category": "pets",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "pets.pet_grooming",
+   "label": "Pet grooming",
+   "category": "pets",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.parking_price",
+   "label": "Parking price per day",
+   "category": "parking",
+   "type": "range",
+   "synonyms": [],
+   "unit": "EUR",
+   "min": 0,
+   "max": 100,
+   "step": 1
+  },
+  {
+   "id": "parking.max_vehicle_height",
+   "label": "Max vehicle height in garage",
+   "category": "parking",
+   "type": "range",
+   "synonyms": [
+    "van",
+    "camper"
+   ],
+   "unit": "m",
+   "min": 1.5,
+   "max": 4.5,
+   "step": 0.1
+  },
+  {
+   "id": "parking.free_parking",
+   "label": "Free parking",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": [],
+   "implies": [
+    "parking.on_site_parking"
+   ]
+  },
+  {
+   "id": "parking.on_site_parking",
+   "label": "On-site parking",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.private_parking",
+   "label": "Private parking",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.secure_parking",
+   "label": "Secure / guarded parking",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.covered_parking",
+   "label": "Covered / garage parking",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": [
+    "garage"
+   ]
+  },
+  {
+   "id": "parking.valet_parking",
+   "label": "Valet parking",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.street_parking",
+   "label": "Free street parking",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.parking_reservation",
+   "label": "Parking can be reserved",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.ev_charging",
+   "label": "EV charging",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": [
+    "electric car",
+    "tesla charger"
+   ]
+  },
+  {
+   "id": "parking.ev_charging_free",
+   "label": "Free EV charging",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": [],
+   "implies": [
+    "parking.ev_charging"
+   ]
+  },
+  {
+   "id": "parking.rv_parking",
+   "label": "RV / camper parking",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.motorcycle_parking",
+   "label": "Motorcycle parking",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.bike_storage",
+   "label": "Bike storage",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.bike_rental",
+   "label": "Bike rental",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": [
+    "bicycle"
+   ]
+  },
+  {
+   "id": "parking.free_bikes",
+   "label": "Free bikes",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.e_bike_rental",
+   "label": "E-bike rental",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.scooter_rental",
+   "label": "Scooter rental",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.car_rental_desk",
+   "label": "Car rental desk",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.airport_shuttle",
+   "label": "Airport shuttle",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.free_airport_shuttle",
+   "label": "Free airport shuttle",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.train_station_shuttle",
+   "label": "Train-station shuttle",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.city_shuttle",
+   "label": "Shuttle to city centre",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.ski_shuttle",
+   "label": "Ski shuttle",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.beach_shuttle",
+   "label": "Beach shuttle",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.private_transfer",
+   "label": "Private transfer",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.limousine_service",
+   "label": "Limousine service",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.free_public_transport_pass",
+   "label": "Free public-transport pass",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": [
+    "city card"
+   ]
+  },
+  {
+   "id": "parking.helipad",
+   "label": "Helipad",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "parking.boat_dock",
+   "label": "Boat dock / mooring",
+   "category": "parking",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "policies.check_in_from",
+   "label": "Earliest check-in time",
+   "category": "policies",
+   "type": "range",
+   "synonyms": [
+    "early check-in"
+   ],
+   "unit": "hour",
+   "min": 0,
+   "max": 24,
+   "step": 1
+  },
+  {
+   "id": "policies.check_out_until",
+   "label": "Latest check-out time",
+   "category": "policies",
+   "type": "range",
+   "synonyms": [
+    "late checkout"
+   ],
+   "unit": "hour",
+   "min": 0,
+   "max": 24,
+   "step": 1
+  },
+  {
+   "id": "policies.min_guest_age",
+   "label": "Minimum guest age",
+   "category": "policies",
+   "type": "range",
+   "synonyms": [],
+   "unit": "years",
+   "min": 0,
+   "max": 30,
+   "step": 1
+  },
+  {
+   "id": "policies.security_deposit",
+   "label": "Security deposit",
+   "category": "policies",
+   "type": "range",
+   "synonyms": [],
+   "unit": "EUR",
+   "min": 0,
+   "max": 2000,
+   "step": 10
+  },
+  {
+   "id": "policies.min_nights",
+   "label": "Minimum stay required",
+   "category": "policies",
+   "type": "range",
+   "synonyms": [],
+   "unit": "nights",
+   "min": 1,
+   "max": 30,
+   "step": 1
+  },
+  {
+   "id": "policies.front_desk_24h",
+   "label": "24-hour front desk",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": [
+    "24h reception",
+    "late arrival"
+   ]
+  },
+  {
+   "id": "policies.self_check_in",
+   "label": "Self check-in",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": [
+    "keybox",
+    "contactless check in"
+   ]
+  },
+  {
+   "id": "policies.mobile_key",
+   "label": "Mobile room key",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": [
+    "digital key"
+   ]
+  },
+  {
+   "id": "policies.express_check_in_out",
+   "label": "Express check-in / check-out",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "policies.early_check_in_available",
+   "label": "Early check-in available",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "policies.late_check_out_available",
+   "label": "Late check-out available",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "policies.concierge",
+   "label": "Concierge",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "policies.butler_service",
+   "label": "Butler service",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "policies.daily_housekeeping",
+   "label": "Daily housekeeping",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "policies.eco_housekeeping_option",
+   "label": "Opt-out housekeeping (eco)",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "policies.tour_desk",
+   "label": "Tour desk",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "policies.ticket_service",
+   "label": "Ticket service",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "policies.currency_exchange",
+   "label": "Currency exchange",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "policies.wake_up_service",
+   "label": "Wake-up service",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "policies.non_smoking_rooms",
+   "label": "Non-smoking rooms",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": [
+    "non smoking"
+   ],
+   "conflicts_with": [
+    "policies.smoking_rooms"
+   ]
+  },
+  {
+   "id": "policies.smoking_rooms",
+   "label": "Smoking rooms",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": [
+    "smoker"
+   ],
+   "conflicts_with": [
+    "style.smoke_free_property",
+    "policies.non_smoking_rooms"
+   ]
+  },
+  {
+   "id": "policies.parties_allowed",
+   "label": "Parties / events allowed",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "policies.quiet_hours",
+   "label": "Enforced quiet hours",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "policies.visitors_allowed",
+   "label": "Visitors allowed",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "policies.unmarried_couples_allowed",
+   "label": "Unmarried couples welcome",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "policies.local_couples_allowed",
+   "label": "Local-resident couples welcome",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "policies.id_not_required_at_checkin",
+   "label": "No ID scan at check-in",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "policies.private_check_in",
+   "label": "Private check-in / check-out",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "policies.free_room_upgrade_possible",
+   "label": "Free upgrade on availability",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "policies.welcome_drink",
+   "label": "Welcome drink",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "policies.honesty_bar",
+   "label": "Honesty bar",
+   "category": "policies",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "language.staff_speaks_english",
+   "label": "Staff speak English",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "English speaking staff",
+    "speaks English"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_dutch",
+   "label": "Staff speak Dutch",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Dutch speaking staff",
+    "speaks Dutch"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_german",
+   "label": "Staff speak German",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "German speaking staff",
+    "speaks German"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_french",
+   "label": "Staff speak French",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "French speaking staff",
+    "speaks French"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_spanish",
+   "label": "Staff speak Spanish",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Spanish speaking staff",
+    "speaks Spanish"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_italian",
+   "label": "Staff speak Italian",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Italian speaking staff",
+    "speaks Italian"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_portuguese",
+   "label": "Staff speak Portuguese",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Portuguese speaking staff",
+    "speaks Portuguese"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_russian",
+   "label": "Staff speak Russian",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Russian speaking staff",
+    "speaks Russian"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_ukrainian",
+   "label": "Staff speak Ukrainian",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Ukrainian speaking staff",
+    "speaks Ukrainian"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_polish",
+   "label": "Staff speak Polish",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Polish speaking staff",
+    "speaks Polish"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_czech",
+   "label": "Staff speak Czech",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Czech speaking staff",
+    "speaks Czech"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_slovak",
+   "label": "Staff speak Slovak",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Slovak speaking staff",
+    "speaks Slovak"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_hungarian",
+   "label": "Staff speak Hungarian",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Hungarian speaking staff",
+    "speaks Hungarian"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_romanian",
+   "label": "Staff speak Romanian",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Romanian speaking staff",
+    "speaks Romanian"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_bulgarian",
+   "label": "Staff speak Bulgarian",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Bulgarian speaking staff",
+    "speaks Bulgarian"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_greek",
+   "label": "Staff speak Greek",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Greek speaking staff",
+    "speaks Greek"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_turkish",
+   "label": "Staff speak Turkish",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Turkish speaking staff",
+    "speaks Turkish"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_arabic",
+   "label": "Staff speak Arabic",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Arabic speaking staff",
+    "speaks Arabic"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_hebrew",
+   "label": "Staff speak Hebrew",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Hebrew speaking staff",
+    "speaks Hebrew"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_persian",
+   "label": "Staff speak Persian",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Persian speaking staff",
+    "speaks Persian"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_hindi",
+   "label": "Staff speak Hindi",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Hindi speaking staff",
+    "speaks Hindi"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_urdu",
+   "label": "Staff speak Urdu",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Urdu speaking staff",
+    "speaks Urdu"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_bengali",
+   "label": "Staff speak Bengali",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Bengali speaking staff",
+    "speaks Bengali"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_tamil",
+   "label": "Staff speak Tamil",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Tamil speaking staff",
+    "speaks Tamil"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_thai",
+   "label": "Staff speak Thai",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Thai speaking staff",
+    "speaks Thai"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_vietnamese",
+   "label": "Staff speak Vietnamese",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Vietnamese speaking staff",
+    "speaks Vietnamese"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_indonesian",
+   "label": "Staff speak Indonesian",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Indonesian speaking staff",
+    "speaks Indonesian"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_malay",
+   "label": "Staff speak Malay",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Malay speaking staff",
+    "speaks Malay"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_tagalog",
+   "label": "Staff speak Tagalog",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Tagalog speaking staff",
+    "speaks Tagalog"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_chinese_mandarin",
+   "label": "Staff speak Chinese Mandarin",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Chinese Mandarin speaking staff",
+    "speaks Chinese Mandarin"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_chinese_cantonese",
+   "label": "Staff speak Chinese Cantonese",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Chinese Cantonese speaking staff",
+    "speaks Chinese Cantonese"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_japanese",
+   "label": "Staff speak Japanese",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Japanese speaking staff",
+    "speaks Japanese"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_korean",
+   "label": "Staff speak Korean",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Korean speaking staff",
+    "speaks Korean"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_swedish",
+   "label": "Staff speak Swedish",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Swedish speaking staff",
+    "speaks Swedish"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_norwegian",
+   "label": "Staff speak Norwegian",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Norwegian speaking staff",
+    "speaks Norwegian"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_danish",
+   "label": "Staff speak Danish",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Danish speaking staff",
+    "speaks Danish"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_finnish",
+   "label": "Staff speak Finnish",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Finnish speaking staff",
+    "speaks Finnish"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_icelandic",
+   "label": "Staff speak Icelandic",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Icelandic speaking staff",
+    "speaks Icelandic"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_estonian",
+   "label": "Staff speak Estonian",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Estonian speaking staff",
+    "speaks Estonian"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_latvian",
+   "label": "Staff speak Latvian",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Latvian speaking staff",
+    "speaks Latvian"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_lithuanian",
+   "label": "Staff speak Lithuanian",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Lithuanian speaking staff",
+    "speaks Lithuanian"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_croatian",
+   "label": "Staff speak Croatian",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Croatian speaking staff",
+    "speaks Croatian"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_serbian",
+   "label": "Staff speak Serbian",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Serbian speaking staff",
+    "speaks Serbian"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_slovenian",
+   "label": "Staff speak Slovenian",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Slovenian speaking staff",
+    "speaks Slovenian"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_albanian",
+   "label": "Staff speak Albanian",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Albanian speaking staff",
+    "speaks Albanian"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_georgian",
+   "label": "Staff speak Georgian",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Georgian speaking staff",
+    "speaks Georgian"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_armenian",
+   "label": "Staff speak Armenian",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Armenian speaking staff",
+    "speaks Armenian"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_azerbaijani",
+   "label": "Staff speak Azerbaijani",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Azerbaijani speaking staff",
+    "speaks Azerbaijani"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_kazakh",
+   "label": "Staff speak Kazakh",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Kazakh speaking staff",
+    "speaks Kazakh"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_swahili",
+   "label": "Staff speak Swahili",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Swahili speaking staff",
+    "speaks Swahili"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_catalan",
+   "label": "Staff speak Catalan",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Catalan speaking staff",
+    "speaks Catalan"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_basque",
+   "label": "Staff speak Basque",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Basque speaking staff",
+    "speaks Basque"
+   ]
+  },
+  {
+   "id": "language.staff_speaks_sign_language_international",
+   "label": "Staff speak Sign Language International",
+   "category": "language",
+   "type": "boolean",
+   "synonyms": [
+    "Sign Language International speaking staff",
+    "speaks Sign Language International"
+   ]
+  },
+  {
+   "id": "activities.skiing",
+   "label": "Skiing",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "skiing"
+   ],
+   "requires_geo_feature": "ski_area"
+  },
+  {
+   "id": "activities.snowboarding",
+   "label": "Snowboarding",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "snowboarding"
+   ]
+  },
+  {
+   "id": "activities.cross_country_skiing",
+   "label": "Cross country skiing",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "cross country skiing"
+   ]
+  },
+  {
+   "id": "activities.ice_skating",
+   "label": "Ice skating",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "ice skating"
+   ]
+  },
+  {
+   "id": "activities.sledding",
+   "label": "Sledding",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "sledding"
+   ]
+  },
+  {
+   "id": "activities.snowshoeing",
+   "label": "Snowshoeing",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "snowshoeing"
+   ]
+  },
+  {
+   "id": "activities.diving",
+   "label": "Diving",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "diving"
+   ]
+  },
+  {
+   "id": "activities.snorkelling",
+   "label": "Snorkelling",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "snorkelling"
+   ]
+  },
+  {
+   "id": "activities.surfing",
+   "label": "Surfing",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "surfing"
+   ]
+  },
+  {
+   "id": "activities.kitesurfing",
+   "label": "Kitesurfing",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "kitesurfing"
+   ]
+  },
+  {
+   "id": "activities.windsurfing",
+   "label": "Windsurfing",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "windsurfing"
+   ]
+  },
+  {
+   "id": "activities.sailing",
+   "label": "Sailing",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "sailing"
+   ]
+  },
+  {
+   "id": "activities.kayaking",
+   "label": "Kayaking",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "kayaking"
+   ]
+  },
+  {
+   "id": "activities.canoeing",
+   "label": "Canoeing",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "canoeing"
+   ]
+  },
+  {
+   "id": "activities.stand_up_paddle",
+   "label": "Stand up paddle",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "stand up paddle"
+   ]
+  },
+  {
+   "id": "activities.jet_ski",
+   "label": "Jet ski",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "jet ski"
+   ]
+  },
+  {
+   "id": "activities.fishing",
+   "label": "Fishing",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "fishing"
+   ]
+  },
+  {
+   "id": "activities.water_skiing",
+   "label": "Water skiing",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "water skiing"
+   ]
+  },
+  {
+   "id": "activities.golf",
+   "label": "Golf",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "golf"
+   ]
+  },
+  {
+   "id": "activities.mini_golf",
+   "label": "Mini golf",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "mini golf"
+   ]
+  },
+  {
+   "id": "activities.tennis",
+   "label": "Tennis",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "tennis"
+   ]
+  },
+  {
+   "id": "activities.padel",
+   "label": "Padel",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "padel"
+   ]
+  },
+  {
+   "id": "activities.squash",
+   "label": "Squash",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "squash"
+   ]
+  },
+  {
+   "id": "activities.badminton",
+   "label": "Badminton",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "badminton"
+   ]
+  },
+  {
+   "id": "activities.table_tennis",
+   "label": "Table tennis",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "table tennis"
+   ]
+  },
+  {
+   "id": "activities.volleyball",
+   "label": "Volleyball",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "volleyball"
+   ]
+  },
+  {
+   "id": "activities.basketball",
+   "label": "Basketball",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "basketball"
+   ]
+  },
+  {
+   "id": "activities.football_pitch",
+   "label": "Football pitch",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "football pitch"
+   ]
+  },
+  {
+   "id": "activities.horse_riding",
+   "label": "Horse riding",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "horse riding"
+   ]
+  },
+  {
+   "id": "activities.cycling_tours",
+   "label": "Cycling tours",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "cycling tours"
+   ]
+  },
+  {
+   "id": "activities.mountain_biking",
+   "label": "Mountain biking",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "mountain biking"
+   ]
+  },
+  {
+   "id": "activities.hiking",
+   "label": "Hiking",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "hiking"
+   ]
+  },
+  {
+   "id": "activities.rock_climbing",
+   "label": "Rock climbing",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "rock climbing"
+   ]
+  },
+  {
+   "id": "activities.via_ferrata",
+   "label": "Via ferrata",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "via ferrata"
+   ]
+  },
+  {
+   "id": "activities.paragliding",
+   "label": "Paragliding",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "paragliding"
+   ]
+  },
+  {
+   "id": "activities.hot_air_balloon",
+   "label": "Hot air balloon",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "hot air balloon"
+   ]
+  },
+  {
+   "id": "activities.zip_lining",
+   "label": "Zip lining",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "zip lining"
+   ]
+  },
+  {
+   "id": "activities.safari",
+   "label": "Safari",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "safari"
+   ]
+  },
+  {
+   "id": "activities.whale_watching",
+   "label": "Whale watching",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "whale watching"
+   ]
+  },
+  {
+   "id": "activities.bird_watching",
+   "label": "Bird watching",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "bird watching"
+   ]
+  },
+  {
+   "id": "activities.stargazing",
+   "label": "Stargazing",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "stargazing"
+   ]
+  },
+  {
+   "id": "activities.wine_tours",
+   "label": "Wine tours",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "wine tours"
+   ]
+  },
+  {
+   "id": "activities.city_tours",
+   "label": "City tours",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "city tours"
+   ]
+  },
+  {
+   "id": "activities.walking_tours",
+   "label": "Walking tours",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "walking tours"
+   ]
+  },
+  {
+   "id": "activities.boat_tours",
+   "label": "Boat tours",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "boat tours"
+   ]
+  },
+  {
+   "id": "activities.cooking_school",
+   "label": "Cooking school",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "cooking school"
+   ]
+  },
+  {
+   "id": "activities.art_classes",
+   "label": "Art classes",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "art classes"
+   ]
+  },
+  {
+   "id": "activities.dance_classes",
+   "label": "Dance classes",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "dance classes"
+   ]
+  },
+  {
+   "id": "activities.live_music",
+   "label": "Live music",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "live music"
+   ]
+  },
+  {
+   "id": "activities.evening_entertainment",
+   "label": "Evening entertainment",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "evening entertainment"
+   ]
+  },
+  {
+   "id": "activities.karaoke",
+   "label": "Karaoke",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "karaoke"
+   ]
+  },
+  {
+   "id": "activities.nightclub_on_site",
+   "label": "Nightclub on site",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "nightclub on site"
+   ]
+  },
+  {
+   "id": "activities.casino",
+   "label": "Casino",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "casino"
+   ]
+  },
+  {
+   "id": "activities.bowling",
+   "label": "Bowling",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "bowling"
+   ]
+  },
+  {
+   "id": "activities.escape_room",
+   "label": "Escape room",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "escape room"
+   ]
+  },
+  {
+   "id": "activities.archery",
+   "label": "Archery",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "archery"
+   ]
+  },
+  {
+   "id": "activities.shooting_range",
+   "label": "Shooting range",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "shooting range"
+   ]
+  },
+  {
+   "id": "activities.spa_day_passes",
+   "label": "Spa day passes",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "spa day passes"
+   ]
+  },
+  {
+   "id": "activities.hot_springs_nearby",
+   "label": "Hot springs nearby",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "hot springs nearby"
+   ]
+  },
+  {
+   "id": "activities.caving",
+   "label": "Caving",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "caving"
+   ]
+  },
+  {
+   "id": "activities.canyoning",
+   "label": "Canyoning",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "canyoning"
+   ]
+  },
+  {
+   "id": "activities.rafting",
+   "label": "Rafting",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "rafting"
+   ]
+  },
+  {
+   "id": "activities.fishing_charters",
+   "label": "Fishing charters",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "fishing charters"
+   ]
+  },
+  {
+   "id": "activities.yacht_charter",
+   "label": "Yacht charter",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "yacht charter"
+   ]
+  },
+  {
+   "id": "activities.museum_passes",
+   "label": "Museum passes",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "museum passes"
+   ]
+  },
+  {
+   "id": "activities.theatre_nearby",
+   "label": "Theatre nearby",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "theatre nearby"
+   ]
+  },
+  {
+   "id": "activities.festival_nearby",
+   "label": "Festival nearby",
+   "category": "activities",
+   "type": "boolean",
+   "synonyms": [
+    "festival nearby"
+   ]
+  },
+  {
+   "id": "sustainability.eco_certified",
+   "label": "Eco-certified (Green Key, EarthCheck…)",
+   "category": "sustainability",
+   "type": "boolean",
+   "synonyms": [
+    "green key",
+    "sustainable",
+    "eco certified"
+   ]
+  },
+  {
+   "id": "sustainability.carbon_neutral",
+   "label": "Carbon neutral",
+   "category": "sustainability",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "sustainability.renewable_energy",
+   "label": "100% renewable energy",
+   "category": "sustainability",
+   "type": "boolean",
+   "synonyms": [
+    "solar"
+   ]
+  },
+  {
+   "id": "sustainability.no_single_use_plastic",
+   "label": "No single-use plastics",
+   "category": "sustainability",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "sustainability.water_saving",
+   "label": "Water-saving measures",
+   "category": "sustainability",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "sustainability.local_sourcing",
+   "label": "Locally sourced food",
+   "category": "sustainability",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "sustainability.composting",
+   "label": "Composting / food-waste programme",
+   "category": "sustainability",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "sustainability.ev_fleet",
+   "label": "Electric vehicle fleet",
+   "category": "sustainability",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "sustainability.community_projects",
+   "label": "Supports local community projects",
+   "category": "sustainability",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "sustainability.b_corp",
+   "label": "B Corp certified",
+   "category": "sustainability",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "sustainability.passive_house",
+   "label": "Passive-house building",
+   "category": "sustainability",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "sustainability.rainwater_harvesting",
+   "label": "Rainwater harvesting",
+   "category": "sustainability",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "sustainability.wildlife_protection",
+   "label": "Wildlife protection programme",
+   "category": "sustainability",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "sustainability.fair_trade_products",
+   "label": "Fair-trade products",
+   "category": "sustainability",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "sustainability.green_roof",
+   "label": "Green roof",
+   "category": "sustainability",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "safety.security_24h",
+   "label": "24-hour security",
+   "category": "safety",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "safety.cctv_common_areas",
+   "label": "CCTV in common areas",
+   "category": "safety",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "safety.smoke_detectors",
+   "label": "Smoke detectors",
+   "category": "safety",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "safety.carbon_monoxide_detector",
+   "label": "Carbon-monoxide detector",
+   "category": "safety",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "safety.fire_extinguishers",
+   "label": "Fire extinguishers",
+   "category": "safety",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "safety.first_aid_kit",
+   "label": "First-aid kit",
+   "category": "safety",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "safety.doctor_on_call",
+   "label": "Doctor on call",
+   "category": "safety",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "safety.defibrillator",
+   "label": "Defibrillator (AED)",
+   "category": "safety",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "safety.key_card_access",
+   "label": "Key-card access",
+   "category": "safety",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "safety.key_card_elevator",
+   "label": "Key-card elevator access",
+   "category": "safety",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "safety.enhanced_cleaning",
+   "label": "Enhanced cleaning protocol",
+   "category": "safety",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "safety.contactless_service",
+   "label": "Contactless service",
+   "category": "safety",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "safety.in_room_hand_sanitizer",
+   "label": "Hand sanitiser in room",
+   "category": "safety",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "safety.well_lit_entrance",
+   "label": "Well-lit entrance",
+   "category": "safety",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "safety.door_chain_peephole",
+   "label": "Door chain / peephole",
+   "category": "safety",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "brand.hotel_brand",
+   "label": "Hotel brand",
+   "category": "brand",
+   "type": "enum",
+   "synonyms": [
+    "marriott",
+    "hilton",
+    "hyatt",
+    "accor",
+    "ihg"
+   ],
+   "options": [
+    "Marriott",
+    "Hilton",
+    "Hyatt",
+    "IHG",
+    "Accor",
+    "Wyndham",
+    "Choice",
+    "Best Western",
+    "Radisson",
+    "Meliá",
+    "NH",
+    "Barceló",
+    "Four Seasons",
+    "Mandarin Oriental",
+    "Kempinski",
+    "citizenM",
+    "Motel One",
+    "Premier Inn",
+    "Ace Hotel",
+    "Soho House"
+   ]
+  },
+  {
+   "id": "brand.loyalty_programme",
+   "label": "Earn loyalty points with",
+   "category": "brand",
+   "type": "enum",
+   "synonyms": [],
+   "options": [
+    "Marriott Bonvoy",
+    "Hilton Honors",
+    "World of Hyatt",
+    "IHG One Rewards",
+    "ALL Accor"
+   ]
+  },
+  {
+   "id": "brand.exclude_brands",
+   "label": "Exclude brands",
+   "category": "brand",
+   "type": "enum",
+   "synonyms": [
+    "not marriott",
+    "no hilton"
+   ],
+   "options": [
+    "Marriott",
+    "Hilton",
+    "Hyatt",
+    "IHG",
+    "Accor",
+    "Wyndham",
+    "Choice",
+    "Best Western",
+    "Radisson"
+   ]
+  },
+  {
+   "id": "property.number_of_rooms",
+   "label": "Number of rooms in property",
+   "category": "property",
+   "type": "range",
+   "synonyms": [
+    "small hotel",
+    "big hotel"
+   ],
+   "unit": "rooms",
+   "min": 1,
+   "max": 3000,
+   "step": 1
+  },
+  {
+   "id": "property.number_of_floors",
+   "label": "Number of floors in building",
+   "category": "property",
+   "type": "range",
+   "synonyms": [
+    "low rise",
+    "skyscraper"
+   ],
+   "unit": "floors",
+   "min": 1,
+   "max": 120,
+   "step": 1
+  },
+  {
+   "id": "property.free_cancellation_until",
+   "label": "Free cancellation until N days before",
+   "category": "property",
+   "type": "range",
+   "synonyms": [],
+   "unit": "days",
+   "min": 0,
+   "max": 60,
+   "step": 1
+  },
+  {
+   "id": "property.noise_rating_room",
+   "label": "Measured in-room noise rating (lower = quieter)",
+   "category": "property",
+   "type": "range",
+   "synonyms": [
+    "very quiet"
+   ],
+   "unit": "dB",
+   "min": 20,
+   "max": 70,
+   "step": 1
+  },
+  {
+   "id": "property.meeting_room_capacity",
+   "label": "Largest meeting room capacity",
+   "category": "property",
+   "type": "range",
+   "synonyms": [],
+   "unit": "people",
+   "min": 2,
+   "max": 5000,
+   "step": 5
+  },
+  {
+   "id": "property.kids_club_min_age",
+   "label": "Kids' club minimum age",
+   "category": "property",
+   "type": "range",
+   "synonyms": [],
+   "unit": "years",
+   "min": 0,
+   "max": 17,
+   "step": 1
+  },
+  {
+   "id": "property.desk_width",
+   "label": "Work desk width",
+   "category": "property",
+   "type": "range",
+   "synonyms": [
+    "big desk"
+   ],
+   "unit": "cm",
+   "min": 50,
+   "max": 250,
+   "step": 10
+  },
+  {
+   "id": "property.balcony_size",
+   "label": "Balcony / terrace size",
+   "category": "property",
+   "type": "range",
+   "synonyms": [
+    "big balcony"
+   ],
+   "unit": "m2",
+   "min": 1,
+   "max": 200,
+   "step": 1
+  },
+  {
+   "id": "property.garden_size",
+   "label": "Garden size",
+   "category": "property",
+   "type": "range",
+   "synonyms": [],
+   "unit": "m2",
+   "min": 10,
+   "max": 50000,
+   "step": 10
+  },
+  {
+   "id": "property.beach_distance_walk_minutes",
+   "label": "Walking minutes to beach",
+   "category": "property",
+   "type": "range",
+   "synonyms": [],
+   "unit": "min",
+   "min": 0,
+   "max": 60,
+   "step": 1
+  },
+  {
+   "id": "property.center_distance_walk_minutes",
+   "label": "Walking minutes to centre",
+   "category": "property",
+   "type": "range",
+   "synonyms": [
+    "walking distance"
+   ],
+   "unit": "min",
+   "min": 0,
+   "max": 90,
+   "step": 1
+  },
+  {
+   "id": "property.sleeps",
+   "label": "Sleeps (whole unit)",
+   "category": "property",
+   "type": "range",
+   "synonyms": [
+    "for 6 people",
+    "sleeps"
+   ],
+   "unit": "people",
+   "min": 1,
+   "max": 30,
+   "step": 1
+  },
+  {
+   "id": "property.courtyard_facing_room",
+   "label": "Courtyard-facing room (away from street)",
+   "category": "property",
+   "type": "boolean",
+   "synonyms": [
+    "not facing street",
+    "back side room"
+   ],
+   "conflicts_with": [
+    "property.street_facing_room"
+   ]
+  },
+  {
+   "id": "property.street_facing_room",
+   "label": "Street-facing room",
+   "category": "property",
+   "type": "boolean",
+   "synonyms": [],
+   "conflicts_with": [
+    "property.courtyard_facing_room"
+   ]
+  },
+  {
+   "id": "property.no_bar_or_club_below",
+   "label": "No bar / club in the building",
+   "category": "property",
+   "type": "boolean",
+   "synonyms": [
+    "no bar downstairs",
+    "no nightclub",
+    "not above a bar"
+   ]
+  },
+  {
+   "id": "property.no_construction_nearby",
+   "label": "No construction work nearby",
+   "category": "property",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property.double_glazing",
+   "label": "Double / triple glazing",
+   "category": "property",
+   "type": "boolean",
+   "synonyms": [
+    "double glazed"
+   ]
+  },
+  {
+   "id": "property.carpeted_floors",
+   "label": "Carpeted floors",
+   "category": "property",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property.hardwood_floors",
+   "label": "Hardwood floors",
+   "category": "property",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property.tatami_floors",
+   "label": "Tatami floors",
+   "category": "property",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property.exclusive_use",
+   "label": "Exclusive use / buyout possible",
+   "category": "property",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property.listed_heritage",
+   "label": "Listed heritage monument",
+   "category": "property",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "property.converted_building",
+   "label": "Converted building (warehouse, church…)",
+   "category": "property",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "trip_purpose.business_trip",
+   "label": "Business trip",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "business trip"
+   ]
+  },
+  {
+   "id": "trip_purpose.honeymoon",
+   "label": "Honeymoon",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "honeymoon"
+   ],
+   "soft_conflicts_with": [
+    "property_type.hostel"
+   ]
+  },
+  {
+   "id": "trip_purpose.family_holiday",
+   "label": "Family holiday",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "family holiday"
+   ],
+   "soft_conflicts_with": [
+    "style.adults_only"
+   ]
+  },
+  {
+   "id": "trip_purpose.solo_trip",
+   "label": "Solo trip",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "solo trip"
+   ]
+  },
+  {
+   "id": "trip_purpose.backpacking",
+   "label": "Backpacking",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "backpacking"
+   ]
+  },
+  {
+   "id": "trip_purpose.ski_trip",
+   "label": "Ski trip",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "ski trip"
+   ]
+  },
+  {
+   "id": "trip_purpose.beach_holiday",
+   "label": "Beach holiday",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "beach holiday"
+   ]
+  },
+  {
+   "id": "trip_purpose.city_break",
+   "label": "City break",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "city break"
+   ]
+  },
+  {
+   "id": "trip_purpose.romantic_weekend",
+   "label": "Romantic weekend",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "romantic weekend"
+   ]
+  },
+  {
+   "id": "trip_purpose.wellness_trip",
+   "label": "Wellness trip",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "wellness trip"
+   ]
+  },
+  {
+   "id": "trip_purpose.road_trip_stopover",
+   "label": "Road trip stopover",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "road trip stopover"
+   ]
+  },
+  {
+   "id": "trip_purpose.event_or_concert",
+   "label": "Event or concert",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "event or concert"
+   ]
+  },
+  {
+   "id": "trip_purpose.medical_trip",
+   "label": "Medical trip",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "medical trip"
+   ]
+  },
+  {
+   "id": "trip_purpose.workation",
+   "label": "Workation",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "workation"
+   ]
+  },
+  {
+   "id": "trip_purpose.student_trip",
+   "label": "Student trip",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "student trip"
+   ]
+  },
+  {
+   "id": "trip_purpose.girls_trip",
+   "label": "Girls trip",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "girls trip"
+   ]
+  },
+  {
+   "id": "trip_purpose.bachelor_party",
+   "label": "Bachelor party",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "bachelor party"
+   ]
+  },
+  {
+   "id": "trip_purpose.wedding_guest",
+   "label": "Wedding guest",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "wedding guest"
+   ]
+  },
+  {
+   "id": "trip_purpose.layover",
+   "label": "Layover",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "layover"
+   ]
+  },
+  {
+   "id": "trip_purpose.anniversary",
+   "label": "Anniversary",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "anniversary"
+   ]
+  },
+  {
+   "id": "trip_purpose.babymoon",
+   "label": "Babymoon",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "babymoon"
+   ]
+  },
+  {
+   "id": "trip_purpose.pilgrimage",
+   "label": "Pilgrimage",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "pilgrimage"
+   ]
+  },
+  {
+   "id": "trip_purpose.sports_event",
+   "label": "Sports event",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "sports event"
+   ]
+  },
+  {
+   "id": "trip_purpose.conference_attendee",
+   "label": "Conference attendee",
+   "category": "trip_purpose",
+   "type": "boolean",
+   "synonyms": [
+    "conference attendee"
+   ]
+  },
+  {
+   "id": "services_ski.ski_storage",
+   "label": "Ski storage",
+   "category": "services_ski",
+   "type": "boolean",
+   "synonyms": [
+    "ski room"
+   ]
+  },
+  {
+   "id": "services_ski.ski_rental",
+   "label": "Ski rental on site",
+   "category": "services_ski",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "services_ski.boot_dryer",
+   "label": "Boot dryer",
+   "category": "services_ski",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "services_ski.ski_school",
+   "label": "Ski school",
+   "category": "services_ski",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "services_ski.ski_pass_sales",
+   "label": "Ski-pass sales",
+   "category": "services_ski",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "services_ski.ski_valet",
+   "label": "Ski valet",
+   "category": "services_ski",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "services_ski.apres_ski_bar",
+   "label": "Après-ski bar",
+   "category": "services_ski",
+   "type": "boolean",
+   "synonyms": [
+    "apres ski"
+   ]
+  },
+  {
+   "id": "services_ski.snow_chains_rental",
+   "label": "Snow-chain rental",
+   "category": "services_ski",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "services_beach.beach_umbrellas",
+   "label": "Beach umbrellas included",
+   "category": "services_beach",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "services_beach.water_sports_centre",
+   "label": "Water-sports centre",
+   "category": "services_beach",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "services_beach.beach_club",
+   "label": "Beach club",
+   "category": "services_beach",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "services_beach.snorkel_gear",
+   "label": "Free snorkel gear",
+   "category": "services_beach",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "services_beach.dive_centre",
+   "label": "PADI dive centre",
+   "category": "services_beach",
+   "type": "boolean",
+   "synonyms": [
+    "padi"
+   ]
+  },
+  {
+   "id": "services_beach.beach_butler",
+   "label": "Beach butler",
+   "category": "services_beach",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "services_beach.sandy_beach",
+   "label": "Sandy beach",
+   "category": "services_beach",
+   "type": "boolean",
+   "synonyms": [
+    "sand beach"
+   ]
+  },
+  {
+   "id": "services_beach.pebble_beach",
+   "label": "Pebble beach",
+   "category": "services_beach",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "services_beach.calm_water_beach",
+   "label": "Calm-water / shallow beach",
+   "category": "services_beach",
+   "type": "boolean",
+   "synonyms": [
+    "safe for kids swimming"
+   ]
+  },
+  {
+   "id": "services_beach.blue_flag_beach",
+   "label": "Blue Flag beach",
+   "category": "services_beach",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "services_active.bike_repair_kit",
+   "label": "Bike repair station",
+   "category": "services_active",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "services_active.bike_wash",
+   "label": "Bike wash",
+   "category": "services_active",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "services_active.cyclist_friendly",
+   "label": "Cyclist-friendly (Bett+Bike etc.)",
+   "category": "services_active",
+   "type": "boolean",
+   "synonyms": [
+    "cyclists"
+   ]
+  },
+  {
+   "id": "services_active.hiking_maps",
+   "label": "Hiking maps & advice",
+   "category": "services_active",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "services_active.guided_hikes",
+   "label": "Guided hikes",
+   "category": "services_active",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "services_active.boot_room",
+   "label": "Boot / drying room",
+   "category": "services_active",
+   "type": "boolean",
+   "synonyms": [
+    "drying room"
+   ]
+  },
+  {
+   "id": "services_active.motorcyclist_friendly",
+   "label": "Motorcyclist-friendly",
+   "category": "services_active",
+   "type": "boolean",
+   "synonyms": [
+    "bikers"
+   ]
+  },
+  {
+   "id": "services_active.golf_club_storage",
+   "label": "Golf-club storage",
+   "category": "services_active",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "services_active.golf_discounts",
+   "label": "Golf green-fee discounts",
+   "category": "services_active",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "services_active.tennis_coaching",
+   "label": "Tennis coaching",
+   "category": "services_active",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "services_active.equipment_rental",
+   "label": "Sports equipment rental",
+   "category": "services_active",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "services_active.marathon_friendly",
+   "label": "Runner / marathon packages",
+   "category": "services_active",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "culture.qibla_direction",
+   "label": "Qibla direction marked",
+   "category": "culture",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "culture.prayer_mat",
+   "label": "Prayer mat available",
+   "category": "culture",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "culture.no_pork_served",
+   "label": "No pork served",
+   "category": "culture",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "culture.alcohol_free_minibar",
+   "label": "Alcohol-free minibar",
+   "category": "culture",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "culture.sabbath_elevator",
+   "label": "Sabbath elevator",
+   "category": "culture",
+   "type": "boolean",
+   "synonyms": [
+    "shabbat"
+   ]
+  },
+  {
+   "id": "culture.non_electronic_keys",
+   "label": "Mechanical keys (Shabbat-friendly)",
+   "category": "culture",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "culture.synagogue_nearby",
+   "label": "Synagogue nearby",
+   "category": "culture",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "culture.mosque_nearby",
+   "label": "Mosque nearby",
+   "category": "culture",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "culture.church_nearby",
+   "label": "Church nearby",
+   "category": "culture",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "culture.temple_nearby",
+   "label": "Temple nearby",
+   "category": "culture",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "culture.separate_wellness_hours",
+   "label": "Gender-separated wellness hours",
+   "category": "culture",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "culture.ramadan_meals",
+   "label": "Suhoor / iftar meals",
+   "category": "culture",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "events.av_equipment",
+   "label": "AV equipment",
+   "category": "events",
+   "type": "boolean",
+   "synonyms": [
+    "projector"
+   ]
+  },
+  {
+   "id": "events.video_conferencing",
+   "label": "Video-conferencing equipment",
+   "category": "events",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "events.wedding_packages",
+   "label": "Wedding packages",
+   "category": "events",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "events.banquet_hall",
+   "label": "Banquet hall",
+   "category": "events",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "events.outdoor_event_space",
+   "label": "Outdoor event space",
+   "category": "events",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "events.team_building",
+   "label": "Team-building activities",
+   "category": "events",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "events.group_rates",
+   "label": "Group rates",
+   "category": "events",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "events.event_coordinator",
+   "label": "Dedicated event coordinator",
+   "category": "events",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "nearby.pharmacy_within_500m",
+   "label": "Pharmacy within 500 m",
+   "category": "nearby",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "nearby.laundromat_within_500m",
+   "label": "Laundromat within 500 m",
+   "category": "nearby",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "nearby.gym_within_500m",
+   "label": "Gym within 500 m",
+   "category": "nearby",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "nearby.coworking_space_within_500m",
+   "label": "Coworking space within 500 m",
+   "category": "nearby",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "nearby.bakery_within_500m",
+   "label": "Bakery within 500 m",
+   "category": "nearby",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "nearby.cafe_within_500m",
+   "label": "Cafe within 500 m",
+   "category": "nearby",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "nearby.grocery_store_within_500m",
+   "label": "Grocery store within 500 m",
+   "category": "nearby",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "nearby.atm_within_500m",
+   "label": "Atm within 500 m",
+   "category": "nearby",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "nearby.hospital_within_500m",
+   "label": "Hospital within 500 m",
+   "category": "nearby",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "nearby.vegan_restaurant_within_500m",
+   "label": "Vegan restaurant within 500 m",
+   "category": "nearby",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "nearby.playground_within_500m",
+   "label": "Playground within 500 m",
+   "category": "nearby",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "nearby.beach_bar_within_500m",
+   "label": "Beach bar within 500 m",
+   "category": "nearby",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "nearby.bike_share_station_within_500m",
+   "label": "Bike share station within 500 m",
+   "category": "nearby",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "nearby.ev_charging_station_within_500m",
+   "label": "Ev charging station within 500 m",
+   "category": "nearby",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "nearby.late_night_food_within_500m",
+   "label": "Late night food within 500 m",
+   "category": "nearby",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "nearby.tourist_information_within_500m",
+   "label": "Tourist information within 500 m",
+   "category": "nearby",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "nearby.car_rental_within_500m",
+   "label": "Car rental within 500 m",
+   "category": "nearby",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "nearby.yoga_studio_within_500m",
+   "label": "Yoga studio within 500 m",
+   "category": "nearby",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "nearby.public_pool_within_500m",
+   "label": "Public pool within 500 m",
+   "category": "nearby",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "nearby.night_market_within_500m",
+   "label": "Night market within 500 m",
+   "category": "nearby",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "occasions.christmas_programme",
+   "label": "Christmas programme",
+   "category": "occasions",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "occasions.new_year_party",
+   "label": "New Year's Eve party",
+   "category": "occasions",
+   "type": "boolean",
+   "synonyms": [
+    "nye"
+   ]
+  },
+  {
+   "id": "occasions.valentines_package",
+   "label": "Valentine's package",
+   "category": "occasions",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "occasions.birthday_package",
+   "label": "Birthday / celebration package",
+   "category": "occasions",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "occasions.honeymoon_package",
+   "label": "Honeymoon package",
+   "category": "occasions",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "occasions.proposal_package",
+   "label": "Proposal package",
+   "category": "occasions",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "occasions.romantic_room_decoration",
+   "label": "Romantic room decoration",
+   "category": "occasions",
+   "type": "boolean",
+   "synonyms": [
+    "rose petals"
+   ]
+  },
+  {
+   "id": "occasions.champagne_on_arrival",
+   "label": "Champagne on arrival",
+   "category": "occasions",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "occasions.summer_open_air_cinema",
+   "label": "Open-air cinema",
+   "category": "occasions",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "occasions.festival_packages",
+   "label": "Festival / event packages",
+   "category": "occasions",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "guest_services.personal_shopper",
+   "label": "Personal shopper",
+   "category": "guest_services",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "guest_services.in_room_massage",
+   "label": "In-room massage",
+   "category": "guest_services",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "guest_services.grocery_delivery",
+   "label": "Grocery delivery before arrival",
+   "category": "guest_services",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "guest_services.luggage_forwarding",
+   "label": "Luggage forwarding",
+   "category": "guest_services",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "guest_services.medical_assistance",
+   "label": "24-h medical assistance",
+   "category": "guest_services",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "guest_services.multilingual_concierge",
+   "label": "Multilingual concierge",
+   "category": "guest_services",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "guest_services.tailor_service",
+   "label": "Tailor service",
+   "category": "guest_services",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "guest_services.photography_service",
+   "label": "Photography service",
+   "category": "guest_services",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "guest_services.chauffeur_service",
+   "label": "Chauffeur service",
+   "category": "guest_services",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "guest_services.pet_friendly_rooms_only_floor",
+   "label": "Dedicated pet-free floors",
+   "category": "guest_services",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "guest_services.rooftop_yoga",
+   "label": "Rooftop yoga sessions",
+   "category": "guest_services",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "guest_services.guest_bicycles_kids",
+   "label": "Kids' bicycles",
+   "category": "guest_services",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "guest_services.free_welcome_snacks",
+   "label": "Free welcome snacks",
+   "category": "guest_services",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "guest_services.free_evening_snacks",
+   "label": "Free evening snacks",
+   "category": "guest_services",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "guest_services.free_coffee_all_day",
+   "label": "Free coffee all day",
+   "category": "guest_services",
+   "type": "boolean",
+   "synonyms": []
+  },
+  {
+   "id": "guest_services.free_laundry",
+   "label": "Free laundry",
+   "category": "guest_services",
+   "type": "boolean",
+   "synonyms": []
+  }
+ ]
+}
