@@ -1,7 +1,7 @@
 """One conversational turn against the OpenAI Responses API.
 
 Usage:
-    export OPENAI_API_KEY=...        # never commit keys; see .env.example
+    export OPENAI_API_KEY=...        # or put it in a .env file at the repo root; see .env.example
     python -m winwin_assistant.assistant "Going to Haarlem 15-18 Aug, solo, quiet boutique hotel"
 """
 
@@ -19,6 +19,23 @@ from .state import SearchState
 from .tools import ToolRouter
 
 ROOT = Path(__file__).resolve().parents[2]
+
+
+def _load_dotenv(path: Path) -> None:
+    """Minimal .env loader (no external dependency): existing env vars always win."""
+    if not path.is_file():
+        return
+    for line in path.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, _, value = line.partition("=")
+        key, value = key.strip(), value.strip().strip('"').strip("'")
+        os.environ.setdefault(key, value)
+
+
+_load_dotenv(ROOT / ".env")
+
 CONFIG = json.loads((ROOT / "assistant" / "config.json").read_text())
 INSTRUCTIONS = (ROOT / "assistant" / "system_prompt.md").read_text()
 TOP_FILTER_CATEGORIES = {"price", "rating", "style", "room", "beds", "bathroom", "connectivity", "meals", "pets",
