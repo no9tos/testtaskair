@@ -1152,11 +1152,11 @@
             "new_count": 7
           },
           {
-            "change": "remove 'No pets on property (allergy-safe)'",
+            "change": "remove 'Price per night'",
             "remove": [
-              "pets.no_pets_on_property"
+              "price.per_night"
             ],
-            "new_count": 7
+            "new_count": 6
           }
         ],
         "facets": {
@@ -1434,11 +1434,11 @@
             "new_count": 7
           },
           {
-            "change": "remove 'No pets on property (allergy-safe)'",
+            "change": "remove 'Price per night'",
             "remove": [
-              "pets.no_pets_on_property"
+              "price.per_night"
             ],
-            "new_count": 7
+            "new_count": 6
           }
         ],
         "facets": {

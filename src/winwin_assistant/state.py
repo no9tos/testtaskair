@@ -19,7 +19,8 @@ MAX_NIGHTS = 30
 MAX_DAYS_AHEAD = 500
 MAX_GUESTS_PER_ROOM = 4
 CORE_ISSUE_CODES = {"destination_empty", "destination_ambiguous", "dates_order", "dates_past", "stay_too_long",
-                    "dates_too_far", "dates_incomplete", "no_adult", "rooms_exceed_adults", "children_ages_missing"}
+                    "dates_too_far", "dates_incomplete", "dates_invalid", "no_adult", "rooms_invalid",
+                    "rooms_exceed_adults", "children_ages_missing", "children_ages_invalid"}
 
 
 @dataclass
@@ -81,8 +82,12 @@ def apply_patch(state: SearchState, patch: dict, catalog: Catalog, today: date,
     _apply_destination(new, patch["destination"], issues)
     _apply_dates(new, patch["dates"], today, issues)
     _apply_guests(new, patch["guests"], issues)
-    if patch.get("currency"):
-        new.currency = patch["currency"]
+    requested_currency = patch.get("currency")
+    if requested_currency and requested_currency != "EUR":
+        issues.append(Issue("blocking", "currency_conversion_unavailable",
+                            f"This demo stores monetary filters in EUR; confirm a EUR amount for {requested_currency} budgets."))
+    elif requested_currency:
+        new.currency = requested_currency
     if patch.get("sort") and patch["sort"] != "keep":
         new.sort = patch["sort"]
     for pref in patch.get("unmapped_preferences", []):
@@ -90,13 +95,14 @@ def apply_patch(state: SearchState, patch: dict, catalog: Catalog, today: date,
             new.unmapped_preferences.append(pref)
 
     features = geo_features(new.destination["name"]) if new.destination else None
-    _apply_filters(new, patch.get("filter_operations", []), catalog, features, issues, applied, rejected)
+    _apply_filters(new, patch.get("filter_operations", []), catalog, features, issues, applied, rejected,
+                   unsupported_currency=bool(requested_currency and requested_currency != "EUR"))
     _plausibility(new, issues)
 
     missing = []
     if not new.destination:
         missing.append("destination")
-    if not new.dates or not new.dates.get("check_in"):
+    if not new.dates or not (new.dates.get("check_in") and new.dates.get("check_out")):
         missing.append("dates")
     if not new.guests or not new.guests.get("adults"):
         missing.append("guests")
@@ -116,6 +122,8 @@ def _apply_destination(s: SearchState, d: dict, issues: list[Issue]) -> None:
         if d.get("ambiguous_with"):
             issues.append(Issue("blocking", "destination_ambiguous",
                                 f"'{d['name']}' is ambiguous: also {', '.join(d['ambiguous_with'])}."))
+            s.destination = None
+            return
         s.destination = {k: d.get(k) for k in ("name", "type", "country_code")}
 
 
@@ -127,7 +135,11 @@ def _apply_dates(s: SearchState, d: dict, today: date, issues: list[Issue]) -> N
         return
     ci, co = d.get("check_in"), d.get("check_out")
     if ci and co:
-        ci_d, co_d = date.fromisoformat(ci), date.fromisoformat(co)
+        try:
+            ci_d, co_d = date.fromisoformat(ci), date.fromisoformat(co)
+        except (TypeError, ValueError):
+            issues.append(Issue("blocking", "dates_invalid", "Check-in and check-out must be valid calendar dates."))
+            return
         if co_d <= ci_d:
             issues.append(Issue("blocking", "dates_order", f"Check-out {co} is not after check-in {ci}."))
             return
@@ -147,11 +159,29 @@ def _apply_dates(s: SearchState, d: dict, today: date, issues: list[Issue]) -> N
         return
     else:  # vague window, e.g. "in May"
         ws, we = d.get("window_start"), d.get("window_end")
-        if ws and date.fromisoformat(ws) < today:
+        if not ws or not we:
+            issues.append(Issue("blocking", "dates_incomplete", "A flexible date window needs both a start and an end."))
+            return
+        try:
+            ws_d, we_d = date.fromisoformat(ws), date.fromisoformat(we)
+        except (TypeError, ValueError):
+            issues.append(Issue("blocking", "dates_invalid", "The date window must contain valid calendar dates."))
+            return
+        if we_d < ws_d:
+            issues.append(Issue("blocking", "dates_order", "The date window ends before it begins."))
+            return
+        if ws_d < today:
             issues.append(Issue("blocking", "dates_past", f"Window starting {ws} is in the past."))
             return
+        if (ws_d - today).days > MAX_DAYS_AHEAD:
+            issues.append(Issue("blocking", "dates_too_far", "Hotels do not sell rooms this far ahead yet."))
+            return
+        nights = d.get("nights")
+        if nights is not None and (not isinstance(nights, int) or not 1 <= nights <= MAX_NIGHTS):
+            issues.append(Issue("blocking", "dates_invalid", f"Stay length must be 1–{MAX_NIGHTS} nights."))
+            return
         s.dates = {"check_in": None, "check_out": None, "window_start": ws, "window_end": we,
-                   "nights": d.get("nights"), "flexibility": d.get("flexibility", "unknown")}
+                   "nights": nights, "flexibility": d.get("flexibility", "unknown")}
     if d.get("assumption"):
         issues.append(Issue("info", "dates_assumption", d["assumption"]))
 
@@ -163,9 +193,15 @@ def _apply_guests(s: SearchState, g: dict, issues: list[Issue]) -> None:
     if g["action"] != "set":
         return
     adults, kids = g.get("adults"), g.get("children_ages") or []
-    rooms = g.get("rooms") or 1
-    if not adults or adults < 1:
+    rooms = g.get("rooms")
+    if not isinstance(adults, int) or isinstance(adults, bool) or adults < 1:
         issues.append(Issue("blocking", "no_adult", "At least one adult is required per booking."))
+        return
+    if not isinstance(rooms, int) or isinstance(rooms, bool) or rooms < 1:
+        issues.append(Issue("blocking", "rooms_invalid", "The number of rooms must be at least one."))
+        return
+    if any(not isinstance(a, int) or isinstance(a, bool) or a < -1 for a in kids):
+        issues.append(Issue("blocking", "children_ages_invalid", "Child ages must be 0–17, or unknown (-1)."))
         return
     if any(a > 17 for a in kids):
         issues.append(Issue("warning", "child_age_adult", "A 'child' aged 18+ is counted as an adult."))
@@ -216,8 +252,10 @@ def _is_on(entry: dict) -> bool:
 
 
 def _apply_filters(s: SearchState, ops: list[dict], catalog: Catalog, features: set[str] | None,
-                   issues: list[Issue], applied: list[str], rejected: list[dict]) -> None:
+                   issues: list[Issue], applied: list[str], rejected: list[dict],
+                   unsupported_currency: bool = False) -> None:
     staged: dict[str, dict] = {}
+    contradicted: set[str] = set()
     for op in ops:
         fid = op["filter_id"]
         f = catalog.get(fid)
@@ -227,6 +265,12 @@ def _apply_filters(s: SearchState, ops: list[dict], catalog: Catalog, features: 
         if op["op"] == "remove":
             if s.filters.pop(fid, None) is not None:
                 applied.append(f"-{fid}")
+            continue
+        if f.get("unit") == "EUR" and unsupported_currency:
+            rejected.append({"filter_id": fid, "reason": "currency_conversion_unavailable"})
+            continue
+        if fid in contradicted:
+            rejected.append({"filter_id": fid, "reason": "contradiction"})
             continue
         value = _normalise_value(op, f, issues)
         if value is None:
@@ -242,6 +286,7 @@ def _apply_filters(s: SearchState, ops: list[dict], catalog: Catalog, features: 
             issues.append(Issue("blocking", "contradiction_same_message",
                                 f"'{f['label']}' was both requested and excluded.", [fid]))
             staged.pop(fid)
+            contradicted.add(fid)
             rejected.append({"filter_id": fid, "reason": "contradiction"})
             continue
         staged[fid] = value | {"importance": op["importance"], "source_quote": op["source_quote"]}

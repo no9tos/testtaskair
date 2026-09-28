@@ -12,7 +12,8 @@ _STOP = {"a", "an", "the", "with", "and", "or", "of", "in", "on", "to", "for", "
 
 
 def _tokens(text: str) -> set[str]:
-    return {t for t in re.findall(r"[a-z0-9²]+", text.lower()) if t not in _STOP}
+    normalized = re.sub(r"\bwi[\s-]?fi\b", "wifi", text.lower())
+    return {t for t in re.findall(r"[a-z0-9²]+", normalized) if t not in _STOP}
 
 
 class Catalog:

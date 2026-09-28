@@ -11,8 +11,11 @@ import re
 from pathlib import Path
 
 from docx import Document
+from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH
-from docx.shared import Pt, RGBColor
+from docx.oxml import OxmlElement
+from docx.oxml.ns import qn
+from docx.shared import Inches, Pt, RGBColor
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "docs" / "WinWin_AI_Assistant.docx"
@@ -28,7 +31,7 @@ def add_inline(par, text: str) -> None:
         elif part.startswith("`") and part.endswith("`"):
             run = par.add_run(part[1:-1])
             run.font.name = "Consolas"
-            run.font.color.rgb = RGBColor(0xB0, 0x30, 0x60)
+            run.font.color.rgb = RGBColor(0x44, 0x44, 0x44)
         elif part.startswith("*") and part.endswith("*") and len(part) > 2:
             par.add_run(part[1:-1]).italic = True
         else:
@@ -45,16 +48,33 @@ def add_code(doc, lines: list[str]) -> None:
 
 def add_table(doc, rows: list[list[str]]) -> None:
     table = doc.add_table(rows=len(rows), cols=len(rows[0]))
-    table.style = "Light Grid Accent 1"
+    table.style = "Table Grid"
+    borders = OxmlElement("w:tblBorders")
+    for edge in ("top", "left", "bottom", "right", "insideH", "insideV"):
+        tag = OxmlElement(f"w:{edge}")
+        tag.set(qn("w:val"), "single")
+        tag.set(qn("w:sz"), "4")
+        tag.set(qn("w:color"), "D9D9D9")
+        borders.append(tag)
+    table._tbl.tblPr.append(borders)
     for r, cells in enumerate(rows):
         for c, text in enumerate(cells):
             cell = table.cell(r, c)
+            cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
             cell.text = ""
             add_inline(cell.paragraphs[0], text.strip())
             for run in cell.paragraphs[0].runs:
                 run.font.size = Pt(8.5)
                 if r == 0:
                     run.bold = True
+            if r == 0:
+                shade = OxmlElement("w:shd")
+                shade.set(qn("w:fill"), "ECECEC")
+                cell._tc.get_or_add_tcPr().append(shade)
+        if r == 0:
+            header = OxmlElement("w:tblHeader")
+            header.set(qn("w:val"), "true")
+            table.rows[r]._tr.get_or_add_trPr().append(header)
     doc.add_paragraph()
 
 
@@ -114,19 +134,31 @@ def render_markdown(doc, md: str, heading_offset: int = 0) -> None:
 
 def main() -> None:
     doc = Document()
+    sec = doc.sections[0]
+    sec.page_width, sec.page_height = Inches(8.5), Inches(11)
+    sec.top_margin = sec.bottom_margin = Inches(.7)
+    sec.left_margin = sec.right_margin = Inches(.72)
     style = doc.styles["Normal"]
-    style.font.name = "Calibri"
-    style.font.size = Pt(10.5)
+    style.font.name = "Arial"
+    style.font.size = Pt(10)
+    style.paragraph_format.space_after = Pt(5)
+    for name, size in (("Title", 20), ("Heading 1", 15), ("Heading 2", 12),
+                       ("Heading 3", 10.5), ("Heading 4", 10)):
+        heading = doc.styles[name]
+        heading.font.name = "Arial"
+        heading.font.size = Pt(size)
+        heading.font.color.rgb = RGBColor(0, 0, 0)
+        heading.paragraph_format.keep_with_next = True
 
-    render_markdown(doc, (ROOT / "docs" / "SOLUTION.md").read_text())
+    render_markdown(doc, (ROOT / "docs" / "SOLUTION.md").read_text(encoding="utf-8"))
 
     doc.add_page_break()
-    doc.add_heading("Appendix A — Full system prompt (assistant/system_prompt.md)", 1)
-    render_markdown(doc, (ROOT / "assistant" / "system_prompt.md").read_text(), heading_offset=1)
+    doc.add_heading("Appendix A Full system prompt", 1)
+    render_markdown(doc, (ROOT / "assistant" / "system_prompt.md").read_text(encoding="utf-8"), heading_offset=1)
 
     doc.add_page_break()
-    catalog = json.loads((ROOT / "filters" / "catalog.json").read_text())
-    doc.add_heading(f"Appendix B — Full filter list ({catalog['count']} filters)", 1)
+    catalog = json.loads((ROOT / "filters" / "catalog.json").read_text(encoding="utf-8"))
+    doc.add_heading(f"Appendix B Full filter list {catalog['count']} filters", 1)
     add_inline(doc.add_paragraph(), "Also available as `filters/catalog.csv` with synonyms and conflict metadata. "
                                     "Range filters show unit and bounds; ⚔ = has hard conflicts, ⇒ = implies other filters.")
     by_cat: dict[str, list[dict]] = {}

@@ -238,7 +238,7 @@ def main() -> None:
                          "assistant_reply": REPLIES[name]})
     (Path(__file__).parent / "conversation.json").write_text(json.dumps(
         {"today": TODAY.isoformat(), "note": "Golden (expected) outputs; tool results produced by src/ backend.",
-         "turns": combined}, indent=2, ensure_ascii=False))
+         "turns": combined}, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 if __name__ == "__main__":

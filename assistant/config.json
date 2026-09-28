@@ -6,7 +6,7 @@
       "model": "gpt-5-mini",
       "reasoning": { "effort": "low" },
       "text": { "verbosity": "low" },
-      "_why": "Reasoning model: better at multi-constraint extraction, date arithmetic and conflict detection; low effort keeps p95 latency ~2-3 s. Reasoning models ignore temperature/top_p."
+      "_why": "Reasoning model selected for multi-constraint extraction and date arithmetic; low effort is a latency hypothesis to measure, not a latency guarantee."
     },
     "B": {
       "model": "gpt-4.1-mini",
@@ -19,14 +19,14 @@
     "instructions_file": "assistant/system_prompt.md",
     "tool_choice": "auto",
     "parallel_tool_calls": false,
-    "max_output_tokens": 1500,
+    "max_output_tokens": 4000,
     "store": false,
     "truncation": "auto",
     "prompt_cache_key": "winwin-hotel-search-v1",
     "metadata": { "app": "winwin-search", "prompt_version": "1.0.0" },
     "max_tool_rounds": 3,
     "conversation_memory": "Backend keeps the conversation (last 12 turns) and ALWAYS injects current_state; the model never relies on memory alone for the filter state.",
-    "safety": { "moderation_pre_check": true, "max_user_message_chars": 4000 }
+    "safety": { "moderation_pre_check": false, "max_user_message_chars": 4000 }
   },
   "tools": [
     {

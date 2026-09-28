@@ -94,7 +94,35 @@ def test_rooms_need_an_adult_each():
 
 def test_ambiguous_destination_blocks():
     d = haarlem() | {"name": "Valencia", "ambiguous_with": ["Valencia, Venezuela"]}
-    assert apply_patch(SearchState(), patch(destination=d), CAT, TODAY).blocking
+    res = apply_patch(SearchState(), patch(destination=d), CAT, TODAY)
+    assert res.blocking and res.state.destination is None
+    assert "destination" in res.missing_required
+
+
+@pytest.mark.parametrize("date_patch,code", [
+    (dates("2027-02-30", "2027-03-02"), "dates_invalid"),
+    (KEEP_DATES | {"action": "set", "window_start": "2027-05-31", "window_end": "2027-05-01",
+                   "flexibility": "month"}, "dates_order"),
+    (KEEP_DATES | {"action": "set", "window_start": "2027-05-01", "window_end": None,
+                   "flexibility": "month"}, "dates_incomplete"),
+    (KEEP_DATES | {"action": "set", "window_start": "2027-05-01", "window_end": "2027-05-31",
+                   "nights": 0, "flexibility": "month"}, "dates_invalid"),
+])
+def test_bad_date_windows_are_blocked_without_crashing(date_patch, code):
+    res = apply_patch(SearchState(), patch(dates=date_patch), CAT, TODAY)
+    assert res.state.dates is None
+    assert code in [i.code for i in res.issues]
+
+
+@pytest.mark.parametrize("guest_patch,code", [
+    (guests(2, rooms=0), "rooms_invalid"),
+    (guests(2, rooms=-1), "rooms_invalid"),
+    (guests(2, kids=[-2]), "children_ages_invalid"),
+])
+def test_invalid_guest_values_do_not_get_silently_repaired(guest_patch, code):
+    res = apply_patch(SearchState(), patch(guests=guest_patch), CAT, TODAY)
+    assert res.state.guests is None
+    assert code in [i.code for i in res.issues]
 
 
 # ---------------------------------------------------------------- filters
@@ -120,12 +148,28 @@ def test_out_of_bounds_range_is_clamped():
     assert res.state.filters["rating.guest_score"]["min"] == 10
 
 
+def test_non_eur_budget_is_not_silently_interpreted_as_eur():
+    p = patch([op("price.per_night", hi=200)]) | {"currency": "USD"}
+    res = apply_patch(SearchState(), p, CAT, TODAY)
+    assert "price.per_night" not in res.state.filters
+    assert res.state.currency == "EUR"
+    assert res.rejected[0]["reason"] == "currency_conversion_unavailable"
+
+
 def test_same_message_contradiction_applies_neither():
     res = apply_patch(SearchState(), patch([op("pets.pets_allowed"), op("pets.no_pets_on_property"),
                                             op("parking.free_parking")]), CAT, TODAY)
     assert "pets.pets_allowed" not in res.state.filters
     assert "pets.no_pets_on_property" not in res.state.filters
     assert "parking.free_parking" in res.state.filters, "the rest of the message is still applied"
+    assert res.blocking
+
+
+def test_repeated_contradiction_cannot_reintroduce_the_filter():
+    res = apply_patch(SearchState(), patch([op("pets.pets_allowed", True),
+                                            op("pets.pets_allowed", False),
+                                            op("pets.pets_allowed", True)]), CAT, TODAY)
+    assert "pets.pets_allowed" not in res.state.filters
     assert res.blocking
 
 
@@ -188,6 +232,22 @@ def test_zero_results_come_with_relaxations_that_help():
     assert relax and all(r["new_count"] > 0 for r in relax)
 
 
+def test_relaxations_never_drop_protected_needs_or_invent_shift_counts():
+    inv = MockInventory(CAT)
+    s = full_state(op("pets.no_pets_on_property"), op("accessibility.wheelchair_accessible"),
+                   op("style.quiet_atmosphere"))
+    for option in inv.relaxations(s):
+        assert not {"pets.no_pets_on_property", "accessibility.wheelchair_accessible"} & set(option["remove"])
+        if option["change"].startswith("shift dates"):
+            shifted = SearchState.from_dict(s.to_dict())
+            from datetime import timedelta
+            delta = timedelta(days=-1 if "14 Aug" in option["change"] else 1)
+            shifted.dates = s.dates | {
+                "check_in": (date.fromisoformat(s.dates["check_in"]) + delta).isoformat(),
+                "check_out": (date.fromisoformat(s.dates["check_out"]) + delta).isoformat()}
+            assert option["new_count"] == inv.count(shifted)
+
+
 def test_examples_are_in_sync_with_backend():
     """Guards the write-up: the numbers quoted in examples come from the code."""
     turns = json.loads((ROOT / "examples" / "conversation.json").read_text())["turns"]
@@ -231,6 +291,7 @@ def test_config_tool_schemas_are_strict_compatible():
     ("not a big chain", "style.independent"),
     ("floor space to stretch or do yoga", "room.floor_space_exercise"),
     ("pet friendly", "pets.pets_allowed"),
+    ("strong in-room Wi-Fi", "connectivity.wifi_speed"),
 ])
 def test_catalog_search_finds_haarlem_phrases(phrase, expected):
     assert CAT.search(phrase)[0]["id"] == expected

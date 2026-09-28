@@ -3,12 +3,11 @@
 An OpenAI assistant that turns natural-language hotel requests into a validated search request
 (destination, dates, guests, and boolean + range filters), then helps the user refine it.
 
-**Main document:** [Google Doc](https://docs.google.com/document/d/1jwnq4Mqip39ZfDd5gdgx3MyYeP1l9w-TdKRjOgzpFmk/edit)
-(source: [`docs/SOLUTION.md`](docs/SOLUTION.md)), with the full filter list in a
-[Google Sheet](https://docs.google.com/spreadsheets/d/128ZokZ-7i1DlkE2ely5_0iaH2J77SGZib79K8D8IYzM/edit). The same content is in
-[`docs/WinWin_AI_Assistant.docx`](docs/WinWin_AI_Assistant.docx), which includes the full prompt and
-all 1,021 filters as appendices. To get a Google Doc: upload the .docx to Google Drive, then choose
-*Open with → Google Docs*.
+**Main document:** [Google Doc](https://docs.google.com/document/d/1quXL2g8Kx0d1zeErXJ3ckSfWH84GzBg-WhFiTK2VtCw/edit)
+(source: [`docs/SOLUTION.md`](docs/SOLUTION.md)). The document includes the full prompt and
+all 1,021 filters as appendices. The same content is in
+[`docs/WinWin_AI_Assistant.docx`](docs/WinWin_AI_Assistant.docx); machine-readable filters are in
+`filters/catalog.csv` and `filters/catalog.json`.
 
 | Deliverable | Where |
 |---|---|
@@ -22,7 +21,8 @@ all 1,021 filters as appendices. To get a Google Doc: upload the .docx to Google
 ## Design in one line
 The model **proposes** a patch through a strict function call. A deterministic backend
 (`src/winwin_assistant/`) **decides**: it validates ids, values, dates and conflicts, checks what is
-possible at the destination, and returns the real offer count plus relaxation options. The model only
+possible at the destination, and returns the offer count plus relaxation options. The demo count comes
+from a deterministic mock; production uses the inventory count endpoint. The model only
 phrases the result.
 
 ## Run
@@ -30,7 +30,7 @@ phrases the result.
 pip install -e ".[dev]"            # or just: pip install pytest
 python filters/build_catalog.py    # regenerate the filter catalog
 PYTHONPATH=src python examples/build_examples.py   # regenerate the example conversation
-python -m pytest -q                # 35 tests, no API key needed
+python -m pytest -q                # 46 tests, no API key needed
 
 # Live turn against OpenAI (optional)
 pip install -e ".[openai]"

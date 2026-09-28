@@ -40,6 +40,14 @@ def _selectivity(fid: str, entry: dict) -> float:
     return base
 
 
+def _safe_to_relax(fid: str) -> bool:
+    """Do not propose dropping needs tied to safety, access, children or animals."""
+    category = fid.split(".", 1)[0]
+    if category in {"accessibility", "pets", "family", "safety"}:
+        return False
+    return not any(word in fid for word in ("allerg", "smok", "child", "baby", "crib", "wheelchair"))
+
+
 class MockInventory:
     def __init__(self, catalog: Catalog):
         self.catalog = catalog
@@ -64,7 +72,7 @@ class MockInventory:
         current = self.count(s)
         if current is None:
             return []
-        musts = [fid for fid, e in s.filters.items() if e["importance"] == "must"]
+        musts = [fid for fid, e in s.filters.items() if e["importance"] == "must" and _safe_to_relax(fid)]
 
         def without(*fids: str) -> SearchState:
             trial = SearchState.from_dict(s.to_dict())
@@ -73,7 +81,7 @@ class MockInventory:
             return trial
 
         options = [{"change": f"remove '{self._label(f, s.filters[f])}'", "remove": [f],
-                    "new_count": self.count(without(f))} for f in musts]
+                    "new_count": self.count(without(f)), "priority": 2} for f in musts]
         for shift in (-1, 1):
             trial = SearchState.from_dict(s.to_dict())
             ci = date.fromisoformat(s.dates["check_in"]) + timedelta(days=shift)
@@ -81,29 +89,39 @@ class MockInventory:
             trial.dates = s.dates | {"check_in": ci.isoformat(), "check_out": co.isoformat()}
             # shoulder days are usually a bit less busy
             options.append({"change": f"shift dates to {ci:%d %b}–{co:%d %b %Y}", "remove": [],
-                            "new_count": int((self.count(trial) or 0) * 1.15)})
+                            "new_count": self.count(trial), "priority": 3})
         if not any(o["new_count"] > current for o in options):
             # no single change helps -> try pairs
             for i, a in enumerate(musts):
                 for b in musts[i + 1:]:
                     options.append({"change": f"remove '{self._label(a, s.filters[a])}' and "
                                               f"'{self._label(b, s.filters[b])}'",
-                                    "remove": [a, b], "new_count": self.count(without(a, b))})
+                                    "remove": [a, b], "new_count": self.count(without(a, b)), "priority": 4})
         if previous is not None and current == 0:
             # the most intuitive fix for "my last message killed all results"
-            added = [f for f in s.filters if f not in previous.filters]
+            added = [f for f in s.filters if f not in previous.filters and _safe_to_relax(f)]
             if added:
                 labels = ", ".join(self._label(f, s.filters[f]) for f in added)
                 demoted = SearchState.from_dict(s.to_dict())
                 for f in added:
                     demoted.filters[f]["importance"] = "nice_to_have"
                 options.append({"change": f"keep {labels} as nice-to-have (ranked first, not required)",
-                                "remove": [], "demote": added, "new_count": self.count(demoted)})
+                                "remove": [], "demote": added, "new_count": self.count(demoted), "priority": 0})
                 options.append({"change": f"undo the last change ({labels})",
-                                "remove": added, "new_count": self.count(previous)})
+                                "remove": added, "new_count": self.count(without(*added)), "priority": 1})
+        if not any((o["new_count"] or 0) > current for o in options) and musts:
+            # Very narrow searches may need more than two convenience filters relaxed.
+            ranked = sorted(musts, key=lambda f: _selectivity(f, s.filters[f]))
+            for n in range(3, len(ranked) + 1):
+                removed = ranked[:n]
+                new_count = self.count(without(*removed))
+                if new_count and new_count > current:
+                    options.append({"change": f"remove {n} optional constraints", "remove": removed,
+                                    "new_count": new_count, "priority": 5})
+                    break
         options = [o for o in options if (o["new_count"] or 0) > current]
-        options.sort(key=lambda o: (-o["new_count"], len(o["remove"])))  # ties: least destructive first
-        return options[:limit]
+        options.sort(key=lambda o: (o["priority"], -o["new_count"]))
+        return [{k: v for k, v in o.items() if k != "priority"} for o in options[:limit]]
 
     def facets(self, s: SearchState) -> dict:
         n = self.count(s) or 0

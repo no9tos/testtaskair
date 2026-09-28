@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -42,9 +43,27 @@ TOP_FILTER_CATEGORIES = {"price", "rating", "style", "room", "beds", "bathroom",
                          "parking", "pool", "wellness", "accessibility"}
 
 
-def top_filters(catalog, limit: int = 150) -> list[str]:
-    ids = [f"{f['id']} | {f['label']}" for f in catalog.filters if f["category"] in TOP_FILTER_CATEGORIES]
-    return ids[:limit]
+def top_filters(catalog, message: str = "", limit: int = 150) -> list[str]:
+    """Put filters matching this message first, then fill with common filters.
+
+    A static slice of the catalog misses entire categories (such as language and
+    property type) in long requests, even though those filters are available.
+    """
+    selected: dict[str, dict] = {}
+    for phrase in re.split(r"[,;.!?\u2014\n]", message):
+        if len(phrase.strip()) < 4:
+            continue
+        for hit in catalog.search(phrase, limit=5):
+            if hit["score"] >= 0.5:
+                f = catalog.get(hit["id"])
+                selected.setdefault(f["id"], f)
+    for f in catalog.filters:
+        if f["category"] in TOP_FILTER_CATEGORIES:
+            selected.setdefault(f["id"], f)
+        if len(selected) >= limit:
+            break
+    return [f"{f['id']} | {f['label']} | {f['type']}" + (f" ({f['unit']})" if f['type'] == 'range' else "")
+            for f in list(selected.values())[:limit]]
 
 
 def run_turn(user_message: str, state: SearchState, history: list[dict], today: date,
@@ -57,7 +76,7 @@ def run_turn(user_message: str, state: SearchState, history: list[dict], today: 
     common, params = CONFIG["common"], {k: v for k, v in CONFIG["variants"][variant].items() if not k.startswith("_")}
 
     context = {"today": today.isoformat(), "timezone": "Europe/Amsterdam", "user_locale": locale,
-               "currency": state.currency, "current_state": state.to_dict(), "top_filters": top_filters(catalog)}
+               "currency": state.currency, "current_state": state.to_dict(), "top_filters": top_filters(catalog, user_message)}
     items = history + [
         {"role": "developer", "content": "Runtime context:\n" + json.dumps(context, ensure_ascii=False)},
         {"role": "user", "content": user_message[: common["safety"]["max_user_message_chars"]]},
@@ -72,6 +91,7 @@ def run_turn(user_message: str, state: SearchState, history: list[dict], today: 
             instructions=INSTRUCTIONS, input=items, tools=CONFIG["tools"],
             tool_choice=common["tool_choice"], parallel_tool_calls=common["parallel_tool_calls"],
             max_output_tokens=common["max_output_tokens"], store=common["store"],
+            truncation=common["truncation"],
             prompt_cache_key=common["prompt_cache_key"], metadata=common["metadata"] | {"variant": variant},
             text=text, **params,
         )
